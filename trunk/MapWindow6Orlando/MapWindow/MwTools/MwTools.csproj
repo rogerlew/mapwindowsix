@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{878A9C2C-21AC-4E63-9819-715B66B63CF5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MapWindow.Tools</RootNamespace>
+    <AssemblyName>MwTools</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>obj\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Release\Tools\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\Release\Tools\MwTools.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\bin\Tools\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>..\..\..\Release\Tools\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MapWindow, Version=6.0.0.0, Culture=neutral, PublicKeyToken=ca60e6823c3a6ee5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Release\MapWindow.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.65.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Analysis\Buffer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Analysis\Voronoi.cs" />
+    <Compile Include="Conversion\RasterToPolygon.cs" />
+    <Compile Include="Forecasting\AR%281%29 Model.cs" />
+    <Compile Include="Forecasting\DataSource.cs" />
+    <Compile Include="Forecasting\LagTool.cs" />
+    <Compile Include="TextStrings.zh-CN.Designer.cs">
+      <DependentUpon>TextStrings.zh-CN.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SpatialReference\ReprojectFeatures.cs" />
+    <Compile Include="Terrain Analysis\FindAveregeSlope.cs" />
+    <Compile Include="Terrain Analysis\FindAveregeSlopeExtented.cs" />
+    <Compile Include="TextStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TextStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Vector Overlay\AddFeature.cs" />
+    <Compile Include="Vector Overlay\DeleteFeatures.cs" />
+    <Compile Include="BitmapResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BitmapResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Analysis\Erase.cs" />
+    <Compile Include="Vector Overlay\ClipPolygonWithLine.cs" />
+    <Compile Include="Terrain Analysis\RasterSlope.cs" />
+    <Compile Include="Vector Overlay\Aggregate.cs" />
+    <Compile Include="Analysis\ClipWithPolygon.cs" />
+    <Compile Include="Analysis\MergeGrids.cs" />
+    <Compile Include="Raster Overlay\NoDataValueChange.cs" />
+    <Compile Include="Raster Overlay\RasterDistance.cs" />
+    <Compile Include="Raster Overlay\ReSampleGrid.cs" />
+    <Compile Include="Raster Overlay\RasterMultiply.cs" />
+    <Compile Include="Raster Overlay\RasterSubract.cs" />
+    <Compile Include="Raster Overlay\RasterAdd.cs" />
+    <Compile Include="Interpolation\IDW.cs" />
+    <Compile Include="Statistics\Area.cs" />
+    <Compile Include="Generalization\DPSimplification.cs" />
+    <Compile Include="Vector Overlay\ClipPolygonWithPolygon.cs" />
+    <Compile Include="Vector Overlay\GenerateCentroid.cs" />
+    <Compile Include="Vector Overlay\OverWriteFeature.cs" />
+    <Compile Include="Conversion\FeatureToRaster.cs" />
+    <Compile Include="Vector Overlay\Union.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Union.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BitmapResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BitmapResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TextStrings.zh-CN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TextStrings.zh-CN.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TextStrings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TextStrings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,539 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MwGdal32</name>
+    </assembly>
+    <members>
+        <member name="T:MapWindow.Gdal32.GdalImageSource">
+            <summary>
+            gdalImage
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalImageSource.#ctor(System.String)">
+            <summary>
+            Creates a new instance of gdalImage, and gets much of the header information without actually
+            reading any values from the file.
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalImageSource.#ctor">
+            <summary>
+            Creates a new instance of gdalImage
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalImageSource.ReadHeader">
+            <summary>
+            Gets the size of the whole image, but doesn't keep the image open unless it was already open.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalImageSource.Close">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalImageSource.GetSizes">
+            <summary>
+            Gets the dimensions of the original (0) plus any overlays.
+            The overlays get smaller as the index gets larger..
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalImageSource.ReadWindow(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+             Returns the data from the file in the form of ARGB bytes, regardless of how the image
+             data is actually stored in the file.
+            </summary>
+            <param name="startRow">The zero based integer index of the first row (Y)</param>
+            <param name="startColumn">The zero based integer index of the first column (X)</param>
+            <param name="numRows">The number of rows to read</param>
+            <param name="numColumns">The number of columns to read</param>
+            <param name="overview">The integer overview.  0 for the original image.  Each successive index divides the length and height in half.  </param>
+            <returns>A Byte of values in ARGB order and in row-major raster-scan sequence</returns>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalImageSource.Dispose">
+            <summary>
+            Disposes the dataset
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalImageSource.GetBitmap(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            This returns the window of data as a bitmap.
+            </summary>
+            <param name="startRow">The zero based integer index of the first row (Y)</param>
+            <param name="startColumn">The zero based integer index of the first column (X)</param>
+            <param name="numRows">The number of rows to read</param>
+            <param name="overview">The integer overview.  0 for the original image.  Each successive index divides the length and height in half.  </param>
+            <param name="numColumns">The number of columns to read</param>
+            <returns></returns>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalImageSource.ReadPaletteBuffered(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Returns ARGB 32 bpp regardless of the fact that the original is palette buffered.
+            </summary>
+        </member>
+        <member name="P:MapWindow.Gdal32.GdalImageSource.Bounds">
+            <summary>
+            Gets or sets the bounds 
+            </summary>
+        </member>
+        <member name="P:MapWindow.Gdal32.GdalImageSource.NumRows">
+            <summary>
+            Gets the number of rows
+            </summary>
+        </member>
+        <member name="P:MapWindow.Gdal32.GdalImageSource.NumColumns">
+            <summary>
+            Gets the total number of columns
+            </summary>
+        </member>
+        <member name="P:MapWindow.Gdal32.GdalImageSource.NumOverviews">
+            <summary>
+            Gets the number of overviews, not counting the original image.
+            </summary>
+            <returns>The number of overviews.</returns>
+        </member>
+        <member name="P:MapWindow.Gdal32.GdalImageSource.Filename">
+            <summary>
+            Gets or sets the filename of the image source
+            </summary>
+        </member>
+        <member name="T:MapWindow.Gdal32.GdalFloatRaster">
+            <summary>
+            GdalFloatRaster
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalFloatRaster.#ctor(System.String,OSGeo.GDAL.Dataset)">
+            <summary>
+            This can be a raster with multiple bands.
+            </summary>
+            <param name="name"></param>
+            <param name="fromDataset"></param>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalFloatRaster.#ctor(System.String,OSGeo.GDAL.Dataset,OSGeo.GDAL.Band)">
+            <summary>
+            creates a new integer raster from the specified band
+            </summary>
+            <param name="filename">The string path of the file if any.</param>
+            <param name="fromDataset"></param>
+            <param name="fromBand"></param>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalFloatRaster.ReadRaster(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Reads values from the raster to the jagged array of values
+            </summary>
+            <param name="xOff">The horizontal offset from the left to start reading from</param>
+            <param name="yOff">The vertical offset from the top to start reading from</param>
+            <param name="sizeX">The number of cells to read horizontally</param>
+            <param name="sizeY">The number of cells ot read vertically</param>
+            <returns>A jagged array of values from the raster</returns>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalFloatRaster.WriteRaster(System.Single[][],System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Writes values from the jagged array to the raster at the specified location
+            </summary>
+            <param name="buffer">A jagged array of values to write to the raster</param>
+            <param name="xOff">The horizontal offset from the left to start reading from</param>
+            <param name="yOff">The vertical offset from the top to start reading from</param>
+            <param name="xSize">The number of cells to write horizontally</param>
+            <param name="ySize">The number of cells ot write vertically</param>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalFloatRaster.UpdateHeader">
+            <summary>
+            Updates the header content with information about the affine coefficients and the projection
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalFloatRaster.GetStatistics">
+            <summary>
+            Gets the statistics 
+            </summary>
+        </member>
+        <member name="T:MapWindow.Gdal32.GdalByteRaster">
+            <summary>
+            GdalIntRaster
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalByteRaster.#ctor(System.String,OSGeo.GDAL.Dataset)">
+            <summary>
+            This can be a raster with multiple bands.
+            </summary>
+            <param name="name"></param>
+            <param name="fromDataset"></param>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalByteRaster.#ctor(System.String,OSGeo.GDAL.Dataset,OSGeo.GDAL.Band)">
+            <summary>
+            creates a new integer raster from the specified band
+            </summary>
+            <param name="filename">The string path of the file if any.</param>
+            <param name="fromDataset"></param>
+            <param name="fromBand"></param>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalByteRaster.ReadRaster(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Reads values from the raster to the jagged array of values
+            </summary>
+            <param name="xOff">The horizontal offset from the left to start reading from</param>
+            <param name="yOff">The vertical offset from the top to start reading from</param>
+            <param name="sizeX">The number of cells to read horizontally</param>
+            <param name="sizeY">The number of cells ot read vertically</param>
+            <returns>A jagged array of values from the raster</returns>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalByteRaster.WriteRaster(System.Byte[][],System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Writes values from the jagged array to the raster at the specified location
+            </summary>
+            <param name="buffer">A jagged array of values to write to the raster</param>
+            <param name="xOff">The horizontal offset from the left to start reading from</param>
+            <param name="yOff">The vertical offset from the top to start reading from</param>
+            <param name="xSize">The number of cells to write horizontally</param>
+            <param name="ySize">The number of cells ot write vertically</param>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalByteRaster.UpdateHeader">
+            <summary>
+            Updates information in the header, namely the affine coefficients and the projection
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalByteRaster.GetStatistics">
+            <summary>
+            Calculates the minimum, maximum, mean, and standard deviation
+            </summary>
+        </member>
+        <member name="T:MapWindow.Gdal32.GdalImageProvider">
+            <summary>
+            GDalImageProvider acts as the factory to create IImageData files that use the GDAL libraries
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalImageProvider.Create(System.String,System.Int32,System.Int32,System.Boolean,MapWindow.Main.IProgressHandler)">
+            <summary>
+            Creates a new image given the specified file format
+            </summary>
+            <param name="filename"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="inRam"></param>
+            <param name="progHandler"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalImageProvider.Open(System.String)">
+            <summary>
+            Opens an existing file using the specified parameters
+            </summary>
+            <param name="filename"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalImageProvider.OpenFile(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="filename"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MapWindow.Gdal32.GdalImageProvider.Description">
+            <summary>
+            Gets or sets the description
+            </summary>
+        </member>
+        <member name="P:MapWindow.Gdal32.GdalImageProvider.DialogReadFilter">
+            <summary>
+            Gets or sets the dialog read filter
+            </summary>
+        </member>
+        <member name="P:MapWindow.Gdal32.GdalImageProvider.DialogWriteFilter">
+            <summary>
+            Gets or sets the dialog write filter
+            </summary>
+        </member>
+        <member name="P:MapWindow.Gdal32.GdalImageProvider.Name">
+            <summary>
+            Gets or sets the string name
+            </summary>
+        </member>
+        <member name="P:MapWindow.Gdal32.GdalImageProvider.ProgressHandler">
+            <summary>
+            Gets or sets the progress handler
+            </summary>
+        </member>
+        <member name="T:MapWindow.Gdal32.GdalIntRaster">
+            <summary>
+            GdalIntRaster
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalIntRaster.#ctor(System.String,OSGeo.GDAL.Dataset)">
+            <summary>
+            This can be a raster with multiple bands.
+            </summary>
+            <param name="name"></param>
+            <param name="fromDataset"></param>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalIntRaster.#ctor(System.String,OSGeo.GDAL.Dataset,OSGeo.GDAL.Band)">
+            <summary>
+            creates a new integer raster from the specified band
+            </summary>
+            <param name="filename">The string path of the file if any.</param>
+            <param name="fromDataset"></param>
+            <param name="fromBand"></param>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalIntRaster.ReadRaster(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Reads values from the raster to the jagged array of values
+            </summary>
+            <param name="xOff">The horizontal offset from the left to start reading from</param>
+            <param name="yOff">The vertical offset from the top to start reading from</param>
+            <param name="sizeX">The number of cells to read horizontally</param>
+            <param name="sizeY">The number of cells ot read vertically</param>
+            <returns>A jagged array of values from the raster</returns>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalIntRaster.WriteRaster(System.Int32[][],System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Writes values from the jagged array to the raster at the specified location
+            </summary>
+            <param name="buffer">A jagged array of values to write to the raster</param>
+            <param name="xOff">The horizontal offset from the left to start reading from</param>
+            <param name="yOff">The vertical offset from the top to start reading from</param>
+            <param name="xSize">The number of cells to write horizontally</param>
+            <param name="ySize">The number of cells ot write vertically</param>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalIntRaster.Copy(System.String,System.Boolean)">
+            <summary>
+            Copies the filename
+            </summary>
+            <param name="filename"></param>
+            <param name="copyValues"></param>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalIntRaster.GdalProgressFunc(System.Double,System.IntPtr,System.IntPtr)">
+            <summary>
+            Handles the callback progress content
+            </summary>
+            <param name="complete"></param>
+            <param name="message"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalIntRaster.GetStatistics">
+            <summary>
+            Gets the mean, standard deviation, minimum and maximum
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalIntRaster.UpdateHeader">
+            <summary>
+            Updates the header information about the projection and the affine coefficients
+            </summary>
+        </member>
+        <member name="P:MapWindow.Gdal32.GdalIntRaster.GdalDataType">
+            <summary>
+            This is the GDAL data type
+            </summary>
+        </member>
+        <member name="T:MapWindow.Gdal32.GdalRasterProvider">
+            <summary>
+            GdalRasterProvider
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalRasterProvider.#ctor">
+            <summary>
+            Creates a new instance of GdalRasterProvider
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalRasterProvider.Create(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Type,System.String[])">
+            <summary>
+            This create new method implies that this provider has the priority for creating a new file.
+            An instance of the dataset should be created and then returned.  By this time, the filename
+            will already be checked to see if it exists, and deleted if the user wants to overwrite it.
+            </summary>
+            <param name="name">The string filename for the new instance</param>
+            <param name="dataType">The data type to use for the raster</param>
+            <param name="driverCode">The string short name of the driver for creating the raster</param>
+            <param name="numBands">The number of bands to create in the raster</param>
+            <param name="xSize">The number of columns in the raster</param>
+            <param name="ySize">The number of rows in the raster</param>
+            <param name="options">The options to be used.</param>
+            <returns>An IRaster</returns>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalRasterProvider.Open(System.String)">
+            <summary>
+            Opens the specified file
+            </summary>
+            <param name="filename"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MapWindow.Gdal32.GdalRasterProvider.Description">
+            <summary>
+            Description of the raster
+            </summary>
+        </member>
+        <member name="P:MapWindow.Gdal32.GdalRasterProvider.DialogReadFilter">
+            <summary>
+            The dialog filter to use when opening a file
+            </summary>
+        </member>
+        <member name="P:MapWindow.Gdal32.GdalRasterProvider.DialogWriteFilter">
+            <summary>
+            The dialog filter to use when saving to a file
+            </summary>
+        </member>
+        <member name="P:MapWindow.Gdal32.GdalRasterProvider.ProgressHandler">
+            <summary>
+            Updated with progress information
+            </summary>
+        </member>
+        <member name="P:MapWindow.Gdal32.GdalRasterProvider.Name">
+            <summary>
+            The name of the provider
+            </summary>
+        </member>
+        <member name="T:MapWindow.Gdal32.GdalException">
+            <summary>
+            GDalException
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalException.#ctor">
+            <summary>
+            Creates a new Exception using Gdal.GetLastErrorMsg
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalException.#ctor(System.String)">
+            <summary>
+            Creates a new instance of GDalException
+            </summary>
+        </member>
+        <member name="T:MapWindow.Gdal32.GdalFileOverviewImage">
+            <summary>
+            GdalFileOverviewImage represents an image too large to fit in ram.  
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalFileOverviewImage.#ctor(System.String)">
+            <summary>
+            Creates a new instance of GdalFileOverviewImage
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalFileOverviewImage.GetBitmap(MapWindow.Geometries.IEnvelope,System.Drawing.Rectangle)">
+            <summary>
+            This method checks the various overviews available and attempts to create an image that will work
+            best.
+            </summary>
+            <param name="envelope"></param>
+            <param name="window"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MapWindow.Gdal32.GdalImage">
+            <summary>
+            gdalImage
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalImage.#ctor(System.String)">
+            <summary>
+            Creates a new instance of gdalImage, and gets much of the header information without actually
+            reading any values from the file.
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalImage.#ctor">
+            <summary>
+            Creates a new instance of gdalImage
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalImage.ReadHeader">
+            <summary>
+            Gets the size of the whole image, but doesn't keep the image open unless it was already open.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalImage.Open">
+            <summary>
+            Attempts to open the specified file.
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalImage.GetBitmap(MapWindow.Geometries.IEnvelope,System.Drawing.Rectangle)">
+            <summary>
+            This needs to return the actual image and override the base behavior that handles
+            the internal variables only.
+            </summary>
+            <param name="envelope">The envelope to grab image data for.</param>
+            <param name="window">A Rectangle</param>
+            <returns></returns>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalImage.ReadBytes">
+            <summary>
+            Reads the actual image values from the image file into the array of Values, which can be accessed by the Color property.
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalImage.WriteBytes">
+            <summary>
+            Writes the byte values stored in the Bytes array into the bitmap image.
+            </summary>
+        </member>
+        <member name="T:MapWindow.Gdal32.GdalTiledImage">
+            <summary>
+            gdalImage
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalTiledImage.#ctor(System.String)">
+            <summary>
+            Creates a new instance of gdalImage
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalTiledImage.Close">
+            <summary>
+            Closes the image
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalTiledImage.Open">
+            <summary>
+            Attempts to open the specified file.
+            </summary>
+        </member>
+        <member name="P:MapWindow.Gdal32.GdalTiledImage.ProgressHandler">
+            <summary>
+            Gets or sets the progress handler
+            </summary>
+        </member>
+        <member name="T:MapWindow.Gdal32.GdalShortRaster">
+            <summary>
+            GdalShortRaster
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalShortRaster.#ctor(System.String,OSGeo.GDAL.Dataset)">
+            <summary>
+            This can be a raster with multiple bands.
+            </summary>
+            <param name="name"></param>
+            <param name="fromDataset"></param>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalShortRaster.#ctor(System.String,OSGeo.GDAL.Dataset,OSGeo.GDAL.Band)">
+            <summary>
+            creates a new integer raster from the specified band
+            </summary>
+            <param name="filename"></param>
+            <param name="fromDataset"></param>
+            <param name="fromBand"></param>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalShortRaster.ReadRaster(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Reads values from the raster to the jagged array of values
+            </summary>
+            <param name="xOff">The horizontal offset from the left to start reading from</param>
+            <param name="yOff">The vertical offset from the top to start reading from</param>
+            <param name="sizeX">The number of cells to read horizontally</param>
+            <param name="sizeY">The number of cells ot read vertically</param>
+            <returns>A jagged array of values from the raster</returns>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalShortRaster.WriteRaster(System.Int16[][],System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Writes values from the jagged array to the raster at the specified location
+            </summary>
+            <param name="buffer">A jagged array of values to write to the raster</param>
+            <param name="xOff">The horizontal offset from the left to start reading from</param>
+            <param name="yOff">The vertical offset from the top to start reading from</param>
+            <param name="xSize">The number of cells to write horizontally</param>
+            <param name="ySize">The number of cells ot write vertically</param>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalShortRaster.UpdateHeader">
+            <summary>
+            Updates information in the header, namely the affine coefficients and the projection
+            </summary>
+        </member>
+        <member name="M:MapWindow.Gdal32.GdalShortRaster.GetStatistics">
+            <summary>
+            Gets the mean, standard deviation, minimum and maximum
+            </summary>
+        </member>
+    </members>
+</doc>

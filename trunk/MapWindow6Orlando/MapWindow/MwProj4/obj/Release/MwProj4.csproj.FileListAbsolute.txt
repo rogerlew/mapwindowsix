@@ -1,0 +1,9 @@
+C:\dev\MapWindow6CP\MapWindow6Orlando\Release\MwProj4.dll
+C:\dev\MapWindow6CP\MapWindow6Orlando\Release\MwProj4.pdb
+C:\dev\MapWindow6CP\MapWindow6Orlando\Release\MwProj4.XML
+C:\dev\MapWindow6CP\MapWindow6Orlando\MapWindow\MwProj4\obj\Release\ResolveAssemblyReference.cache
+C:\dev\MapWindow6CP\MapWindow6Orlando\MapWindow\MwProj4\obj\Release\MwProj4.Projections.ProjectionMessages.resources
+C:\dev\MapWindow6CP\MapWindow6Orlando\MapWindow\MwProj4\obj\Release\MwProj4.Projections.ProjectionNames.resources
+C:\dev\MapWindow6CP\MapWindow6Orlando\MapWindow\MwProj4\obj\Release\MwProj4.csproj.GenerateResource.Cache
+C:\dev\MapWindow6CP\MapWindow6Orlando\MapWindow\MwProj4\obj\Release\MwProj4.dll
+C:\dev\MapWindow6CP\MapWindow6Orlando\MapWindow\MwProj4\obj\Release\MwProj4.pdb

@@ -1,0 +1,12 @@
+<ToolManagerSetting version="1.0">
+  <Setting>
+
+  </Setting>
+  
+    <Provider Name ="DefaultToolProvider">
+      <Settings>
+        <Path Value ="C:\dev\MapWindow6Dev\bin\Tools"></Path>
+      </Settings>
+    </Provider>
+
+</ToolManagerSetting>

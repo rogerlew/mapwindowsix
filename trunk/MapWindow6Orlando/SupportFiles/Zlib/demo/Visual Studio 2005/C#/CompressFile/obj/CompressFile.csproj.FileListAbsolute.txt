@@ -1,0 +1,8 @@
+C:\dev\MapWindow6CodePlex\SupportFiles\Zlib\demo\Visual Studio 2005\C#\CompressFile\bin\Debug\CompressFile.exe
+C:\dev\MapWindow6CodePlex\SupportFiles\Zlib\demo\Visual Studio 2005\C#\CompressFile\bin\Debug\CompressFile.pdb
+C:\dev\MapWindow6CodePlex\SupportFiles\Zlib\demo\Visual Studio 2005\C#\CompressFile\bin\Debug\zlib.net.dll
+C:\dev\MapWindow6CodePlex\SupportFiles\Zlib\demo\Visual Studio 2005\C#\CompressFile\obj\Debug\ResolveAssemblyReference.cache
+C:\dev\MapWindow6CodePlex\SupportFiles\Zlib\demo\Visual Studio 2005\C#\CompressFile\obj\Debug\CompressFile.Form1.resources
+C:\dev\MapWindow6CodePlex\SupportFiles\Zlib\demo\Visual Studio 2005\C#\CompressFile\obj\Debug\CompressFile.csproj.GenerateResource.Cache
+C:\dev\MapWindow6CodePlex\SupportFiles\Zlib\demo\Visual Studio 2005\C#\CompressFile\obj\Debug\CompressFile.exe
+C:\dev\MapWindow6CodePlex\SupportFiles\Zlib\demo\Visual Studio 2005\C#\CompressFile\obj\Debug\CompressFile.pdb
