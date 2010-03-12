@@ -1,0 +1,363 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MwShapeEditor</name>
+    </assembly>
+    <members>
+        <member name="T:MapWindow.ShapeEditor.ShapeEditorResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:MapWindow.ShapeEditor.ShapeEditorResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:MapWindow.ShapeEditor.ShapeEditorResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:MapWindow.ShapeEditor.MessageStrings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:MapWindow.ShapeEditor.MessageStrings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:MapWindow.ShapeEditor.MessageStrings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:MapWindow.ShapeEditor.MessageStrings.CoordinateM">
+            <summary>
+              Looks up a localized string similar to Enter a double presision floating point M value..
+            </summary>
+        </member>
+        <member name="P:MapWindow.ShapeEditor.MessageStrings.CoordinateX">
+            <summary>
+              Looks up a localized string similar to Enter a double precision floating point X value..
+            </summary>
+        </member>
+        <member name="P:MapWindow.ShapeEditor.MessageStrings.CoordinateY">
+            <summary>
+              Looks up a localized string similar to Enter a double precision floating point Y value..
+            </summary>
+        </member>
+        <member name="P:MapWindow.ShapeEditor.MessageStrings.CoordinateZ">
+            <summary>
+              Looks up a localized string similar to Enter a double precision floating point Z value..
+            </summary>
+        </member>
+        <member name="P:MapWindow.ShapeEditor.MessageStrings.DoubleParseException">
+            <summary>
+              Looks up a localized string similar to The entered value is invalid because it can&apos;t be converted into a double precision floating point number..
+            </summary>
+        </member>
+        <member name="P:MapWindow.ShapeEditor.MessageStrings.SelectLayerError">
+            <summary>
+              Looks up a localized string similar to Please select a layer before attempting to use this feature..
+            </summary>
+        </member>
+        <member name="T:MapWindow.ShapeEditor.ShapeEditorToolStrip">
+            <summary>
+            ShapeEditorToolBar
+            </summary>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.ShapeEditorToolStrip.#ctor">
+            <summary>
+            Creates a new instance of ShapeEditorToolBar
+            </summary>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.ShapeEditorToolStrip.Deactivate">
+            <summary>
+            Instructs this control to initiate cleanup where necessary
+            </summary>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.ShapeEditorToolStrip.InitializeComponent">
+            <summary>
+            Warning: Using the normal resource manager that is used by default by the program will cause
+            the entire application to crash in mono.
+            </summary>
+        </member>
+        <member name="P:MapWindow.ShapeEditor.ShapeEditorToolStrip.Map">
+            <summary>
+            Gets or sets the 2D Geographic map to use with this feature editing toolkit.
+            </summary>
+        </member>
+        <member name="T:MapWindow.ShapeEditor.MoveVertexFunction">
+            <summary>
+            MoveVertexFunction works only with the actively selected layer in the legend.
+            MoveVertex requires clicking on a shape in order to first select the shape to work with.
+            Moving the mouse should highlight potential shapes for editing when not in edit mode.
+            Clicking on the shape establishes "edit mode" for that shape.
+            It should display all the vertices of the selected polygon in blue.
+            The mouse down on a vertex starts dragging. 
+            but previous polygon location should be ok as well.
+            A right click during drag should cancel the movement if dragging.
+            A further right click will de-select the shape to edit.
+            </summary>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.MoveVertexFunction.#ctor">
+            <summary>
+            Creates a new instance of MoveVertexFunction
+            </summary>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.MoveVertexFunction.#ctor(MapWindow.Map.IMap)">
+            <summary>
+            Creates an instance of the MoveVertexFunction where the Map will be defined
+            </summary>
+            <param name="map"></param>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.MoveVertexFunction.ShapeRemoveHighlight(MapWindow.Map.GeoMouseArgs)">
+            <summary>
+            Highlighting shapes with a mouse over is something that also needs to be undone when the
+            mouse leaves.  This test handles changing the colors back to normal when the mouse leaves a shape.
+            </summary>
+            <param name="e"></param>
+            <returns>Boolean, true if mapframe initialize (or visual change) is necessary.</returns>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.MoveVertexFunction.ShapeHighlight(MapWindow.Map.GeoMouseArgs)">
+            <summary>
+            Before a shape is selected, moving the mouse over a shape will highlight that shape by changing
+            its appearance.  This tests features to determine the first feature to qualify as the highlight.
+            </summary>
+            <param name="e"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.MoveVertexFunction.CheckForVertexDrag(MapWindow.Map.GeoMouseArgs)">
+            <summary>
+            This function checks to see if the current mouse location is over a vertex.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.MoveVertexFunction.UnSelectFeature">
+            <summary>
+            This should be called if for some reason the layer gets un-selected or whatever so that the selection
+            should clear.
+            </summary>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.MoveVertexFunction.UnHighlightFeature">
+            <summary>
+            Removes the highlighting from the actively highlighted feature
+            </summary>
+        </member>
+        <member name="P:MapWindow.ShapeEditor.MoveVertexFunction.Layer">
+            <summary>
+            Gets or sets the layer
+            </summary>
+        </member>
+        <member name="T:MapWindow.ShapeEditor.ShapeEditorPlugin">
+            <summary>
+            GeoShapeEditorPlugin
+            </summary>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.ShapeEditorPlugin.Initialize(MapWindow.Map.IMapPluginArgs)">
+            <summary>
+            The initialization is where this plugin can cache the necessary information about the MapWindow
+            project.  This includes, for instance, the Map or Legend that is associated with the GeoPlugin
+            Manager.  This can be useful for trapping events or accessing member values like the MapFrame
+            or figuring out what layers are currently in the map, or even getting to the dataset for 
+            each layer.
+            </summary>
+            <param name="args">The IGeoPluginArgs replaces the g_MapWin concept and has the necessary application info </param>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.ShapeEditorPlugin.OnDeactivate">
+            <summary>
+            Fires when the plugin should become inactive
+            </summary>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.ShapeEditorPlugin.MapWindow#Plugins#IExtension#Activate">
+            <summary>
+            GeoShapeEditorPlugin
+            </summary>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.ShapeEditorPlugin.MapWindow#Plugins#IExtension#Deactivate">
+            <summary>
+            GeoShapeEditorPlugin
+            </summary>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.ShapeEditorPlugin.MapWindow#Plugins#IExtension#get_IsEnabled">
+            <summary>
+            GeoShapeEditorPlugin
+            </summary>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.ShapeEditorPlugin.MapWindow#Plugins#IExtension#set_IsEnabled(System.Boolean)">
+            <summary>
+            GeoShapeEditorPlugin
+            </summary>
+        </member>
+        <member name="T:MapWindow.ShapeEditor.AddShapeFunction">
+            <summary>
+            AddShapeFunction
+            </summary>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.AddShapeFunction.#ctor">
+            <summary>
+            Creates a new instance of AddShapeFunction
+            </summary>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.AddShapeFunction.#ctor(MapWindow.Map.IMap)">
+            <summary>
+            Creates a new instance of AddShapeFunction, but specifies
+            the Map that this function should be applied to.
+            </summary>
+            <param name="map"></param>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.AddShapeFunction.OnActivate">
+            <summary>
+            Forces this function to begin collecting points for building a new shape.
+            </summary>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.AddShapeFunction.OnDeactivate">
+            <summary>
+            Allows for new behavior during deactivation.
+            </summary>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.AddShapeFunction.OnDraw(MapWindow.Map.MapDrawArgs)">
+            <summary>
+            Handles drawing of editing features
+            </summary>
+            <param name="e">The drawing args</param>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.AddShapeFunction.OnMouseMove(MapWindow.Map.GeoMouseArgs)">
+            <summary>
+            updates the auto-filling X and Y coordinates
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.AddShapeFunction.OnMouseUp(MapWindow.Map.GeoMouseArgs)">
+            <summary>
+            Handles the Mouse-Up situation
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.AddShapeFunction.OnUnload">
+            <summary>
+            Occurs when this function is removed.
+            </summary>
+        </member>
+        <member name="P:MapWindow.ShapeEditor.AddShapeFunction.FeatureSet">
+            <summary>
+            Gets or sets the featureset to modify
+            </summary>
+        </member>
+        <member name="T:MapWindow.ShapeEditor.CoordinateDialog">
+            <summary>
+            CoordinateDialog
+            </summary>
+        </member>
+        <member name="F:MapWindow.ShapeEditor.CoordinateDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.CoordinateDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.CoordinateDialog.#ctor">
+            <summary>
+            Creates a new instance of CoordinateDialog
+            </summary>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.CoordinateDialog.OnClosing(System.ComponentModel.CancelEventArgs)">
+            <summary>
+            prevents disposing this form when the user closes it.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.CoordinateDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="E:MapWindow.ShapeEditor.CoordinateDialog.CoordinateAdded">
+            <summary>
+            Occurs when the ok button is clicked
+            </summary>
+        </member>
+        <member name="P:MapWindow.ShapeEditor.CoordinateDialog.Coordinate">
+            <summary>
+            Gets a coordinate based on the current values.
+            </summary>
+        </member>
+        <member name="P:MapWindow.ShapeEditor.CoordinateDialog.ShowMValues">
+            <summary>
+            Gets or sets whether or not to show M values
+            </summary>
+        </member>
+        <member name="P:MapWindow.ShapeEditor.CoordinateDialog.ShowZValues">
+            <summary>
+            Gets or sets whether or not to show Z values
+            </summary>
+        </member>
+        <member name="P:MapWindow.ShapeEditor.CoordinateDialog.X">
+            <summary>
+            Gets or sets the X value
+            </summary>
+        </member>
+        <member name="P:MapWindow.ShapeEditor.CoordinateDialog.Y">
+            <summary>
+            Gets or sets the Y value
+            </summary>
+        </member>
+        <member name="P:MapWindow.ShapeEditor.CoordinateDialog.Z">
+            <summary>
+            Gets or sets the Z value
+            </summary>
+        </member>
+        <member name="P:MapWindow.ShapeEditor.CoordinateDialog.M">
+            <summary>
+            Gets or sets the M vlaue
+            </summary>
+        </member>
+        <member name="T:MapWindow.ShapeEditor.FeatureTypeDialog">
+            <summary>
+            FeatureTypeDialog
+            </summary>
+        </member>
+        <member name="F:MapWindow.ShapeEditor.FeatureTypeDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.FeatureTypeDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.FeatureTypeDialog.#ctor">
+            <summary>
+            Creates a new instance of FeatureTypeDialog
+            </summary>
+        </member>
+        <member name="M:MapWindow.ShapeEditor.FeatureTypeDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="P:MapWindow.ShapeEditor.FeatureTypeDialog.FeatureType">
+            <summary>
+            Gets the feature type chosen by this dialog
+            </summary>
+        </member>
+        <member name="P:MapWindow.ShapeEditor.FeatureTypeDialog.CoordinateType">
+            <summary>
+            Gets the Coordinate type for this dialog
+            </summary>
+        </member>
+    </members>
+</doc>

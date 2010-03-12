@@ -1,0 +1,13 @@
+C:\dev\MapWindow6CP\MapWindow6Orlando\Release\Tools\MwTools.XML
+C:\dev\MapWindow6CP\MapWindow6Orlando\Release\Tools\MwTools.dll
+C:\dev\MapWindow6CP\MapWindow6Orlando\Release\Tools\MwTools.pdb
+C:\dev\MapWindow6CP\MapWindow6Orlando\Release\Tools\zh-CN\MwTools.resources.dll
+C:\dev\MapWindow6CP\MapWindow6Orlando\MapWindow\MwTools\obj\Release\ResolveAssemblyReference.cache
+C:\dev\MapWindow6CP\MapWindow6Orlando\MapWindow\MwTools\obj\Release\MapWindow.Tools.BitmapResources.resources
+C:\dev\MapWindow6CP\MapWindow6Orlando\MapWindow\MwTools\obj\Release\MapWindow.Tools.Properties.Resources.resources
+C:\dev\MapWindow6CP\MapWindow6Orlando\MapWindow\MwTools\obj\Release\MapWindow.Tools.TextStrings.resources
+C:\dev\MapWindow6CP\MapWindow6Orlando\MapWindow\MwTools\obj\Release\MapWindow.Tools.TextStrings.zh-CN.resources
+C:\dev\MapWindow6CP\MapWindow6Orlando\MapWindow\MwTools\obj\Release\MwTools.csproj.GenerateResource.Cache
+C:\dev\MapWindow6CP\MapWindow6Orlando\MapWindow\MwTools\obj\Release\zh-CN\MwTools.resources.dll
+C:\dev\MapWindow6CP\MapWindow6Orlando\MapWindow\MwTools\obj\Release\MwTools.dll
+C:\dev\MapWindow6CP\MapWindow6Orlando\MapWindow\MwTools\obj\Release\MwTools.pdb

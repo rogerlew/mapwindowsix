@@ -1,0 +1,9 @@
+C:\dev\MapWindow6G\Release\Plugins\GDAL\MwGdal32.xml
+C:\dev\MapWindow6G\Release\Plugins\GDAL\MwGdal32.dll
+C:\dev\MapWindow6G\Release\Plugins\GDAL\MwGdal32.pdb
+C:\dev\MapWindow6G\MapWindow6Orlando\MapWindow\Plugins\MwGdal32\obj\Release\ResolveAssemblyReference.cache
+C:\dev\MapWindow6G\MapWindow6Orlando\MapWindow\Plugins\MwGdal32\obj\Release\MwGdal32.dll
+C:\dev\MapWindow6G\MapWindow6Orlando\MapWindow\Plugins\MwGdal32\obj\Release\MwGdal32.pdb
+C:\dev\MapWindow6G\MapWindow6Orlando\Release\Plugins\GDAL\MwGdal32.dll
+C:\dev\MapWindow6G\MapWindow6Orlando\Release\Plugins\GDAL\MwGdal32.pdb
+C:\dev\MapWindow6G\MapWindow6Orlando\Release\Plugins\GDAL\MwGdal32.xml

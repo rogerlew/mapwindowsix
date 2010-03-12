@@ -1,0 +1,6 @@
+Debug Binaries (that build do the "bin" folder)
+should no longer be committed to svn.
+Only the project lead (currently Ted Dunsford) should
+be building in release mode, so conflicts in
+binary executibles in the "Release" folder should
+be avoided.

@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="lblColor.Text" xml:space="preserve">
+    <value>颜色:</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="cddColor.Items348" type="System.Drawing.KnownColor, System.Drawing">
+    <value>ActiveBorder</value>
+  </data>
+  <data name="cddColor.Items349" type="System.Drawing.KnownColor, System.Drawing">
+    <value>ActiveCaption</value>
+  </data>
+  <data name="cddColor.Items350" type="System.Drawing.KnownColor, System.Drawing">
+    <value>ActiveCaptionText</value>
+  </data>
+  <data name="cddColor.Items351" type="System.Drawing.KnownColor, System.Drawing">
+    <value>AppWorkspace</value>
+  </data>
+  <data name="cddColor.Items352" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Control</value>
+  </data>
+  <data name="cddColor.Items353" type="System.Drawing.KnownColor, System.Drawing">
+    <value>ControlDark</value>
+  </data>
+  <data name="cddColor.Items354" type="System.Drawing.KnownColor, System.Drawing">
+    <value>ControlDarkDark</value>
+  </data>
+  <data name="cddColor.Items355" type="System.Drawing.KnownColor, System.Drawing">
+    <value>ControlLight</value>
+  </data>
+  <data name="cddColor.Items356" type="System.Drawing.KnownColor, System.Drawing">
+    <value>ControlLightLight</value>
+  </data>
+  <data name="cddColor.Items357" type="System.Drawing.KnownColor, System.Drawing">
+    <value>ControlText</value>
+  </data>
+  <data name="cddColor.Items358" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Desktop</value>
+  </data>
+  <data name="cddColor.Items359" type="System.Drawing.KnownColor, System.Drawing">
+    <value>GrayText</value>
+  </data>
+  <data name="cddColor.Items360" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Highlight</value>
+  </data>
+  <data name="cddColor.Items361" type="System.Drawing.KnownColor, System.Drawing">
+    <value>HighlightText</value>
+  </data>
+  <data name="cddColor.Items362" type="System.Drawing.KnownColor, System.Drawing">
+    <value>HotTrack</value>
+  </data>
+  <data name="cddColor.Items363" type="System.Drawing.KnownColor, System.Drawing">
+    <value>InactiveBorder</value>
+  </data>
+  <data name="cddColor.Items364" type="System.Drawing.KnownColor, System.Drawing">
+    <value>InactiveCaption</value>
+  </data>
+  <data name="cddColor.Items365" type="System.Drawing.KnownColor, System.Drawing">
+    <value>InactiveCaptionText</value>
+  </data>
+  <data name="cddColor.Items366" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Info</value>
+  </data>
+  <data name="cddColor.Items367" type="System.Drawing.KnownColor, System.Drawing">
+    <value>InfoText</value>
+  </data>
+  <data name="cddColor.Items368" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Menu</value>
+  </data>
+  <data name="cddColor.Items369" type="System.Drawing.KnownColor, System.Drawing">
+    <value>MenuText</value>
+  </data>
+  <data name="cddColor.Items370" type="System.Drawing.KnownColor, System.Drawing">
+    <value>ScrollBar</value>
+  </data>
+  <data name="cddColor.Items371" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Window</value>
+  </data>
+  <data name="cddColor.Items372" type="System.Drawing.KnownColor, System.Drawing">
+    <value>WindowFrame</value>
+  </data>
+  <data name="cddColor.Items373" type="System.Drawing.KnownColor, System.Drawing">
+    <value>WindowText</value>
+  </data>
+  <data name="cddColor.Items374" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="cddColor.Items375" type="System.Drawing.KnownColor, System.Drawing">
+    <value>AliceBlue</value>
+  </data>
+  <data name="cddColor.Items376" type="System.Drawing.KnownColor, System.Drawing">
+    <value>AntiqueWhite</value>
+  </data>
+  <data name="cddColor.Items377" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Aqua</value>
+  </data>
+  <data name="cddColor.Items378" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Aquamarine</value>
+  </data>
+  <data name="cddColor.Items379" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Azure</value>
+  </data>
+  <data name="cddColor.Items380" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Beige</value>
+  </data>
+  <data name="cddColor.Items381" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Bisque</value>
+  </data>
+  <data name="cddColor.Items382" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Black</value>
+  </data>
+  <data name="cddColor.Items383" type="System.Drawing.KnownColor, System.Drawing">
+    <value>BlanchedAlmond</value>
+  </data>
+  <data name="cddColor.Items384" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Blue</value>
+  </data>
+  <data name="cddColor.Items385" type="System.Drawing.KnownColor, System.Drawing">
+    <value>BlueViolet</value>
+  </data>
+  <data name="cddColor.Items386" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Brown</value>
+  </data>
+  <data name="cddColor.Items387" type="System.Drawing.KnownColor, System.Drawing">
+    <value>BurlyWood</value>
+  </data>
+  <data name="cddColor.Items388" type="System.Drawing.KnownColor, System.Drawing">
+    <value>CadetBlue</value>
+  </data>
+  <data name="cddColor.Items389" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Chartreuse</value>
+  </data>
+  <data name="cddColor.Items390" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Chocolate</value>
+  </data>
+  <data name="cddColor.Items391" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Coral</value>
+  </data>
+  <data name="cddColor.Items392" type="System.Drawing.KnownColor, System.Drawing">
+    <value>CornflowerBlue</value>
+  </data>
+  <data name="cddColor.Items393" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Cornsilk</value>
+  </data>
+  <data name="cddColor.Items394" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Crimson</value>
+  </data>
+  <data name="cddColor.Items395" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Cyan</value>
+  </data>
+  <data name="cddColor.Items396" type="System.Drawing.KnownColor, System.Drawing">
+    <value>DarkBlue</value>
+  </data>
+  <data name="cddColor.Items397" type="System.Drawing.KnownColor, System.Drawing">
+    <value>DarkCyan</value>
+  </data>
+  <data name="cddColor.Items398" type="System.Drawing.KnownColor, System.Drawing">
+    <value>DarkGoldenrod</value>
+  </data>
+  <data name="cddColor.Items399" type="System.Drawing.KnownColor, System.Drawing">
+    <value>DarkGray</value>
+  </data>
+  <data name="cddColor.Items400" type="System.Drawing.KnownColor, System.Drawing">
+    <value>DarkGreen</value>
+  </data>
+  <data name="cddColor.Items401" type="System.Drawing.KnownColor, System.Drawing">
+    <value>DarkKhaki</value>
+  </data>
+  <data name="cddColor.Items402" type="System.Drawing.KnownColor, System.Drawing">
+    <value>DarkMagenta</value>
+  </data>
+  <data name="cddColor.Items403" type="System.Drawing.KnownColor, System.Drawing">
+    <value>DarkOliveGreen</value>
+  </data>
+  <data name="cddColor.Items404" type="System.Drawing.KnownColor, System.Drawing">
+    <value>DarkOrange</value>
+  </data>
+  <data name="cddColor.Items405" type="System.Drawing.KnownColor, System.Drawing">
+    <value>DarkOrchid</value>
+  </data>
+  <data name="cddColor.Items406" type="System.Drawing.KnownColor, System.Drawing">
+    <value>DarkRed</value>
+  </data>
+  <data name="cddColor.Items407" type="System.Drawing.KnownColor, System.Drawing">
+    <value>DarkSalmon</value>
+  </data>
+  <data name="cddColor.Items408" type="System.Drawing.KnownColor, System.Drawing">
+    <value>DarkSeaGreen</value>
+  </data>
+  <data name="cddColor.Items409" type="System.Drawing.KnownColor, System.Drawing">
+    <value>DarkSlateBlue</value>
+  </data>
+  <data name="cddColor.Items410" type="System.Drawing.KnownColor, System.Drawing">
+    <value>DarkSlateGray</value>
+  </data>
+  <data name="cddColor.Items411" type="System.Drawing.KnownColor, System.Drawing">
+    <value>DarkTurquoise</value>
+  </data>
+  <data name="cddColor.Items412" type="System.Drawing.KnownColor, System.Drawing">
+    <value>DarkViolet</value>
+  </data>
+  <data name="cddColor.Items413" type="System.Drawing.KnownColor, System.Drawing">
+    <value>DeepPink</value>
+  </data>
+  <data name="cddColor.Items414" type="System.Drawing.KnownColor, System.Drawing">
+    <value>DeepSkyBlue</value>
+  </data>
+  <data name="cddColor.Items415" type="System.Drawing.KnownColor, System.Drawing">
+    <value>DimGray</value>
+  </data>
+  <data name="cddColor.Items416" type="System.Drawing.KnownColor, System.Drawing">
+    <value>DodgerBlue</value>
+  </data>
+  <data name="cddColor.Items417" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Firebrick</value>
+  </data>
+  <data name="cddColor.Items418" type="System.Drawing.KnownColor, System.Drawing">
+    <value>FloralWhite</value>
+  </data>
+  <data name="cddColor.Items419" type="System.Drawing.KnownColor, System.Drawing">
+    <value>ForestGreen</value>
+  </data>
+  <data name="cddColor.Items420" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Fuchsia</value>
+  </data>
+  <data name="cddColor.Items421" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Gainsboro</value>
+  </data>
+  <data name="cddColor.Items422" type="System.Drawing.KnownColor, System.Drawing">
+    <value>GhostWhite</value>
+  </data>
+  <data name="cddColor.Items423" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Gold</value>
+  </data>
+  <data name="cddColor.Items424" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Goldenrod</value>
+  </data>
+  <data name="cddColor.Items425" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Gray</value>
+  </data>
+  <data name="cddColor.Items426" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Green</value>
+  </data>
+  <data name="cddColor.Items427" type="System.Drawing.KnownColor, System.Drawing">
+    <value>GreenYellow</value>
+  </data>
+  <data name="cddColor.Items428" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Honeydew</value>
+  </data>
+  <data name="cddColor.Items429" type="System.Drawing.KnownColor, System.Drawing">
+    <value>HotPink</value>
+  </data>
+  <data name="cddColor.Items430" type="System.Drawing.KnownColor, System.Drawing">
+    <value>IndianRed</value>
+  </data>
+  <data name="cddColor.Items431" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Indigo</value>
+  </data>
+  <data name="cddColor.Items432" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Ivory</value>
+  </data>
+  <data name="cddColor.Items433" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Khaki</value>
+  </data>
+  <data name="cddColor.Items434" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Lavender</value>
+  </data>
+  <data name="cddColor.Items435" type="System.Drawing.KnownColor, System.Drawing">
+    <value>LavenderBlush</value>
+  </data>
+  <data name="cddColor.Items436" type="System.Drawing.KnownColor, System.Drawing">
+    <value>LawnGreen</value>
+  </data>
+  <data name="cddColor.Items437" type="System.Drawing.KnownColor, System.Drawing">
+    <value>LemonChiffon</value>
+  </data>
+  <data name="cddColor.Items438" type="System.Drawing.KnownColor, System.Drawing">
+    <value>LightBlue</value>
+  </data>
+  <data name="cddColor.Items439" type="System.Drawing.KnownColor, System.Drawing">
+    <value>LightCoral</value>
+  </data>
+  <data name="cddColor.Items440" type="System.Drawing.KnownColor, System.Drawing">
+    <value>LightCyan</value>
+  </data>
+  <data name="cddColor.Items441" type="System.Drawing.KnownColor, System.Drawing">
+    <value>LightGoldenrodYellow</value>
+  </data>
+  <data name="cddColor.Items442" type="System.Drawing.KnownColor, System.Drawing">
+    <value>LightGray</value>
+  </data>
+  <data name="cddColor.Items443" type="System.Drawing.KnownColor, System.Drawing">
+    <value>LightGreen</value>
+  </data>
+  <data name="cddColor.Items444" type="System.Drawing.KnownColor, System.Drawing">
+    <value>LightPink</value>
+  </data>
+  <data name="cddColor.Items445" type="System.Drawing.KnownColor, System.Drawing">
+    <value>LightSalmon</value>
+  </data>
+  <data name="cddColor.Items446" type="System.Drawing.KnownColor, System.Drawing">
+    <value>LightSeaGreen</value>
+  </data>
+  <data name="cddColor.Items447" type="System.Drawing.KnownColor, System.Drawing">
+    <value>LightSkyBlue</value>
+  </data>
+  <data name="cddColor.Items448" type="System.Drawing.KnownColor, System.Drawing">
+    <value>LightSlateGray</value>
+  </data>
+  <data name="cddColor.Items449" type="System.Drawing.KnownColor, System.Drawing">
+    <value>LightSteelBlue</value>
+  </data>
+  <data name="cddColor.Items450" type="System.Drawing.KnownColor, System.Drawing">
+    <value>LightYellow</value>
+  </data>
+  <data name="cddColor.Items451" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Lime</value>
+  </data>
+  <data name="cddColor.Items452" type="System.Drawing.KnownColor, System.Drawing">
+    <value>LimeGreen</value>
+  </data>
+  <data name="cddColor.Items453" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Linen</value>
+  </data>
+  <data name="cddColor.Items454" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="cddColor.Items455" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Maroon</value>
+  </data>
+  <data name="cddColor.Items456" type="System.Drawing.KnownColor, System.Drawing">
+    <value>MediumAquamarine</value>
+  </data>
+  <data name="cddColor.Items457" type="System.Drawing.KnownColor, System.Drawing">
+    <value>MediumBlue</value>
+  </data>
+  <data name="cddColor.Items458" type="System.Drawing.KnownColor, System.Drawing">
+    <value>MediumOrchid</value>
+  </data>
+  <data name="cddColor.Items459" type="System.Drawing.KnownColor, System.Drawing">
+    <value>MediumPurple</value>
+  </data>
+  <data name="cddColor.Items460" type="System.Drawing.KnownColor, System.Drawing">
+    <value>MediumSeaGreen</value>
+  </data>
+  <data name="cddColor.Items461" type="System.Drawing.KnownColor, System.Drawing">
+    <value>MediumSlateBlue</value>
+  </data>
+  <data name="cddColor.Items462" type="System.Drawing.KnownColor, System.Drawing">
+    <value>MediumSpringGreen</value>
+  </data>
+  <data name="cddColor.Items463" type="System.Drawing.KnownColor, System.Drawing">
+    <value>MediumTurquoise</value>
+  </data>
+  <data name="cddColor.Items464" type="System.Drawing.KnownColor, System.Drawing">
+    <value>MediumVioletRed</value>
+  </data>
+  <data name="cddColor.Items465" type="System.Drawing.KnownColor, System.Drawing">
+    <value>MidnightBlue</value>
+  </data>
+  <data name="cddColor.Items466" type="System.Drawing.KnownColor, System.Drawing">
+    <value>MintCream</value>
+  </data>
+  <data name="cddColor.Items467" type="System.Drawing.KnownColor, System.Drawing">
+    <value>MistyRose</value>
+  </data>
+  <data name="cddColor.Items468" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Moccasin</value>
+  </data>
+  <data name="cddColor.Items469" type="System.Drawing.KnownColor, System.Drawing">
+    <value>NavajoWhite</value>
+  </data>
+  <data name="cddColor.Items470" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Navy</value>
+  </data>
+  <data name="cddColor.Items471" type="System.Drawing.KnownColor, System.Drawing">
+    <value>OldLace</value>
+  </data>
+  <data name="cddColor.Items472" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Olive</value>
+  </data>
+  <data name="cddColor.Items473" type="System.Drawing.KnownColor, System.Drawing">
+    <value>OliveDrab</value>
+  </data>
+  <data name="cddColor.Items474" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Orange</value>
+  </data>
+  <data name="cddColor.Items475" type="System.Drawing.KnownColor, System.Drawing">
+    <value>OrangeRed</value>
+  </data>
+  <data name="cddColor.Items476" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Orchid</value>
+  </data>
+  <data name="cddColor.Items477" type="System.Drawing.KnownColor, System.Drawing">
+    <value>PaleGoldenrod</value>
+  </data>
+  <data name="cddColor.Items478" type="System.Drawing.KnownColor, System.Drawing">
+    <value>PaleGreen</value>
+  </data>
+  <data name="cddColor.Items479" type="System.Drawing.KnownColor, System.Drawing">
+    <value>PaleTurquoise</value>
+  </data>
+  <data name="cddColor.Items480" type="System.Drawing.KnownColor, System.Drawing">
+    <value>PaleVioletRed</value>
+  </data>
+  <data name="cddColor.Items481" type="System.Drawing.KnownColor, System.Drawing">
+    <value>PapayaWhip</value>
+  </data>
+  <data name="cddColor.Items482" type="System.Drawing.KnownColor, System.Drawing">
+    <value>PeachPuff</value>
+  </data>
+  <data name="cddColor.Items483" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Peru</value>
+  </data>
+  <data name="cddColor.Items484" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Pink</value>
+  </data>
+  <data name="cddColor.Items485" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Plum</value>
+  </data>
+  <data name="cddColor.Items486" type="System.Drawing.KnownColor, System.Drawing">
+    <value>PowderBlue</value>
+  </data>
+  <data name="cddColor.Items487" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Purple</value>
+  </data>
+  <data name="cddColor.Items488" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Red</value>
+  </data>
+  <data name="cddColor.Items489" type="System.Drawing.KnownColor, System.Drawing">
+    <value>RosyBrown</value>
+  </data>
+  <data name="cddColor.Items490" type="System.Drawing.KnownColor, System.Drawing">
+    <value>RoyalBlue</value>
+  </data>
+  <data name="cddColor.Items491" type="System.Drawing.KnownColor, System.Drawing">
+    <value>SaddleBrown</value>
+  </data>
+  <data name="cddColor.Items492" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Salmon</value>
+  </data>
+  <data name="cddColor.Items493" type="System.Drawing.KnownColor, System.Drawing">
+    <value>SandyBrown</value>
+  </data>
+  <data name="cddColor.Items494" type="System.Drawing.KnownColor, System.Drawing">
+    <value>SeaGreen</value>
+  </data>
+  <data name="cddColor.Items495" type="System.Drawing.KnownColor, System.Drawing">
+    <value>SeaShell</value>
+  </data>
+  <data name="cddColor.Items496" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Sienna</value>
+  </data>
+  <data name="cddColor.Items497" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Silver</value>
+  </data>
+  <data name="cddColor.Items498" type="System.Drawing.KnownColor, System.Drawing">
+    <value>SkyBlue</value>
+  </data>
+  <data name="cddColor.Items499" type="System.Drawing.KnownColor, System.Drawing">
+    <value>SlateBlue</value>
+  </data>
+  <data name="cddColor.Items500" type="System.Drawing.KnownColor, System.Drawing">
+    <value>SlateGray</value>
+  </data>
+  <data name="cddColor.Items501" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Snow</value>
+  </data>
+  <data name="cddColor.Items502" type="System.Drawing.KnownColor, System.Drawing">
+    <value>SpringGreen</value>
+  </data>
+  <data name="cddColor.Items503" type="System.Drawing.KnownColor, System.Drawing">
+    <value>SteelBlue</value>
+  </data>
+  <data name="cddColor.Items504" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Tan</value>
+  </data>
+  <data name="cddColor.Items505" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Teal</value>
+  </data>
+  <data name="cddColor.Items506" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Thistle</value>
+  </data>
+  <data name="cddColor.Items507" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Tomato</value>
+  </data>
+  <data name="cddColor.Items508" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Turquoise</value>
+  </data>
+  <data name="cddColor.Items509" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Violet</value>
+  </data>
+  <data name="cddColor.Items510" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Wheat</value>
+  </data>
+  <data name="cddColor.Items511" type="System.Drawing.KnownColor, System.Drawing">
+    <value>White</value>
+  </data>
+  <data name="cddColor.Items512" type="System.Drawing.KnownColor, System.Drawing">
+    <value>WhiteSmoke</value>
+  </data>
+  <data name="cddColor.Items513" type="System.Drawing.KnownColor, System.Drawing">
+    <value>Yellow</value>
+  </data>
+  <data name="cddColor.Items514" type="System.Drawing.KnownColor, System.Drawing">
+    <value>YellowGreen</value>
+  </data>
+  <data name="cddColor.Items515" type="System.Drawing.KnownColor, System.Drawing">
+    <value>ButtonFace</value>
+  </data>
+  <data name="cddColor.Items516" type="System.Drawing.KnownColor, System.Drawing">
+    <value>ButtonHighlight</value>
+  </data>
+  <data name="cddColor.Items517" type="System.Drawing.KnownColor, System.Drawing">
+    <value>ButtonShadow</value>
+  </data>
+  <data name="cddColor.Items518" type="System.Drawing.KnownColor, System.Drawing">
+    <value>GradientActiveCaption</value>
+  </data>
+  <data name="cddColor.Items519" type="System.Drawing.KnownColor, System.Drawing">
+    <value>GradientInactiveCaption</value>
+  </data>
+  <data name="cddColor.Items520" type="System.Drawing.KnownColor, System.Drawing">
+    <value>MenuBar</value>
+  </data>
+  <data name="cddColor.Items521" type="System.Drawing.KnownColor, System.Drawing">
+    <value>MenuHighlight</value>
+  </data>
+  <data name="cddColor.Items522" type="System.Drawing.Color, System.Drawing">
+    <value />
+  </data>
+</root>

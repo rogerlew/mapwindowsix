@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MapWindow6</name>
+    </assembly>
+    <members>
+        <member name="T:MapWindow.frmMapWindow6">
+            <summary>
+            The main form for the project
+            </summary>
+        </member>
+        <member name="M:MapWindow.frmMapWindow6.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MapWindow.frmMapWindow6.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:MapWindow.frmMapWindow6.#ctor">
+            <summary>
+            Creates a new project form
+            </summary>
+        </member>
+        <member name="M:MapWindow.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:MapWindow.frmSettings">
+            <summary>
+            A dialog for allowing the users to control settings
+            </summary>
+        </member>
+        <member name="F:MapWindow.frmSettings.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MapWindow.frmSettings.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MapWindow.frmSettings.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:MapWindow.frmSettings.#ctor">
+            <summary>
+            Creates a new instance of the settings dialog
+            </summary>
+        </member>
+        <member name="P:MapWindow.frmSettings.SettingValues">
+            <summary>
+            Gets or sets the SettingInfo specifying the actual values from this dialog
+            </summary>
+        </member>
+        <member name="T:MapWindow.Settings">
+            <summary>
+            A class to store the setting information to a file.
+            </summary>
+        </member>
+        <member name="M:MapWindow.Settings.#ctor(System.String)">
+            <summary>
+            Creates a new setting situation by loading from the filename if it exists.  Otherwise a default is created.
+            </summary>
+            <param name="filename"></param>
+        </member>
+        <member name="P:MapWindow.Settings.Info">
+            <summary>
+            Gets or sets the setting info.  Setting this will also save a copy.
+            </summary>
+        </member>
+        <member name="P:MapWindow.Settings.Filename">
+            <summary>
+            Gets or sets the filename where the settings are stored.
+            </summary>
+        </member>
+        <member name="T:MapWindow.SettingInfo">
+            <summary>
+            A Class to store the preferences for this application
+            </summary>
+        </member>
+        <member name="F:MapWindow.SettingInfo.PreferredCulture">
+            <summary>
+            The Preferred Culture
+            </summary>
+        </member>
+        <member name="M:MapWindow.SettingInfo.#ctor">
+            <summary>
+            Creates a new instance of this class
+            </summary>
+        </member>
+        <member name="T:MapWindow.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:MapWindow.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:MapWindow.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:MapWindow.TextStrings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:MapWindow.TextStrings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:MapWindow.TextStrings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:MapWindow.TextStrings.RestartNeeded">
+            <summary>
+              Looks up a localized string similar to MapWindow 6.0 needs to be restarted in order for the language changes to take effect..
+            </summary>
+        </member>
+    </members>
+</doc>

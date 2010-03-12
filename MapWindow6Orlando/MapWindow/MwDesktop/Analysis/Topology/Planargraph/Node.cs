@@ -1,0 +1,166 @@
+//********************************************************************************************************
+// Product Name: MapWindow.dll Alpha
+// Description:  The basic module for MapWindow version 6.0
+//********************************************************************************************************
+// The contents of this file are subject to the Mozilla Public License Version 1.1 (the "License"); 
+// you may not use this file except in compliance with the License. You may obtain a copy of the License at 
+// http://www.mozilla.org/MPL/  Alternately, you can access an earlier version of this content from
+// the Net Topology Suite, which is protected by the GNU Lesser Public License
+// http://www.gnu.org/licenses/lgpl.html and the sourcecode for the Net Topology Suite
+// can be obtained here: http://sourceforge.net/projects/nts.
+//
+// Software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF 
+// ANY KIND, either expressed or implied. See the License for the specificlanguage governing rights and 
+// limitations under the License. 
+//
+// The Original Code is from the Net Topology Suite
+//
+// The Initial Developer to integrate this code into MapWindow 6.0 is Ted Dunsford.
+// 
+// Contributor(s): (Open source contributors should list themselves and their modifications here). 
+//
+//********************************************************************************************************
+using System;
+using System.Collections;
+using System.Text;
+
+using Iesi.Collections;
+
+using MapWindow.Geometries;
+namespace MapWindow.Analysis.Topology.Planargraph
+{
+    /// <summary>
+    /// A node in a <c>PlanarGraph</c> is a location where 0 or more <c>Edge</c>s
+    /// meet. A node is connected to each of its incident Edges via an outgoing
+    /// DirectedEdge. Some clients using a <c>PlanarGraph</c> may want to
+    /// subclass <c>Node</c> to add their own application-specific
+    /// data and methods.
+    /// </summary>
+    public class Node : GraphComponent
+    {
+        /// <summary>
+        /// Returns all Edges that connect the two nodes (which are assumed to be different).
+        /// </summary>
+        /// <param name="node0"></param>
+        /// <param name="node1"></param>
+        /// <returns></returns>
+        public static IList getEdgesBetween(Node node0, Node node1)
+        {
+            IList edges0 = DirectedEdge.ToEdges(node0.OutEdges.Edges);
+            ISet commonEdges = new HashedSet(edges0);
+            IList edges1 = DirectedEdge.ToEdges(node1.OutEdges.Edges);
+            commonEdges.RetainAll(edges1);
+            return new ArrayList(commonEdges);
+        }
+
+        /// <summary>
+        /// The location of this Node.
+        /// </summary>
+        protected Coordinate pt;
+
+        /// <summary>
+        /// The collection of DirectedEdges that leave this Node.
+        /// </summary>
+        protected DirectedEdgeStar deStar;
+
+        /// <summary>
+        /// Constructs a Node with the given location.
+        /// </summary>
+        /// <param name="pt"></param>
+        public Node(Coordinate pt) : this(pt, new DirectedEdgeStar()) { }
+
+        /// <summary>
+        /// Constructs a Node with the given location and collection of outgoing DirectedEdges.
+        /// </summary>
+        /// <param name="pt"></param>
+        /// <param name="deStar"></param>
+        public Node(Coordinate pt, DirectedEdgeStar deStar)
+        {
+            this.pt = pt;
+            this.deStar = deStar;
+        }
+
+        /// <summary>
+        /// Returns the location of this Node.
+        /// </summary>
+        public virtual Coordinate Coordinate
+        {
+            get
+            {
+                return pt;
+            }
+        }
+
+        /// <summary>
+        /// Adds an outgoing DirectedEdge to this Node.
+        /// </summary>
+        /// <param name="de"></param>
+        public virtual void AddOutEdge(DirectedEdge de)
+        {
+            deStar.Add(de);
+        }
+
+        /// <summary>
+        /// Returns the collection of DirectedEdges that leave this Node.
+        /// </summary>
+        public virtual DirectedEdgeStar OutEdges
+        {
+            get
+            {
+                return deStar;
+            }
+        }
+
+        /// <summary>
+        /// Returns the number of edges around this Node.
+        /// </summary>
+        public virtual int Degree
+        {
+            get
+            {
+                return deStar.Degree;
+            }
+        }
+
+        /// <summary>
+        /// Returns the zero-based index of the given Edge, after sorting in ascending order
+        /// by angle with the positive x-axis.
+        /// </summary>
+        /// <param name="edge"></param>
+        /// <returns></returns>
+        public virtual int GetIndex(Edge edge)
+        {
+            return deStar.GetIndex(edge);
+        }
+
+        /// <summary>
+        /// Removes this node from its containing graph.
+        /// </summary>
+        internal void Remove()
+        {
+            pt = null;
+        }
+
+        /// <summary>
+        /// Tests whether this component has been removed from its containing graph.
+        /// </summary>
+        /// <value></value>
+        public override bool IsRemoved
+        {
+            get
+            {
+                return pt == null;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "NODE: " + pt.ToString() + ": " + Degree;
+        }
+
+    }
+}

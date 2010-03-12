@@ -1,0 +1,2429 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5F761BC4-418B-4926-BE1B-AB1DAF9DC930}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MapWindow</RootNamespace>
+    <AssemblyName>MwDesktop</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>MapWindow.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\bin\MwDesktop.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\Release\MwDesktop.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>..\..\bin\MwDesktop.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>..\..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>..\..\bin\MapWindow.XML</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Analysis\Rasters\ReSampleCells.cs" />
+    <Compile Include="Analysis\Rasters\VectorToRaster.cs" />
+    <Compile Include="Analysis\ShapeAlgorithms\LineShape.cs" />
+    <Compile Include="Analysis\ShapeAlgorithms\PointShape.cs" />
+    <Compile Include="Analysis\ShapeAlgorithms\PolygonShape.cs" />
+    <Compile Include="Analysis\Topology\Simplify\DouglasPeuckerLineSimplifier.cs" />
+    <Compile Include="Analysis\Topology\Simplify\DouglasPeuckerSimplifier.cs" />
+    <Compile Include="Analysis\Topology\Simplify\LineSegmentIndex.cs" />
+    <Compile Include="Analysis\Topology\Simplify\TaggedLineSegment.cs" />
+    <Compile Include="Analysis\Topology\Simplify\TaggedLinesSimplifier.cs" />
+    <Compile Include="Analysis\Topology\Simplify\TaggedLineString.cs" />
+    <Compile Include="Analysis\Topology\Simplify\TaggedLineStringSimplifier.cs" />
+    <Compile Include="Analysis\Topology\Simplify\TopologyPreservingSimplifier.cs" />
+    <Compile Include="Analysis\Topology\Voronoi\FortuneVoronoi.cs" />
+    <Compile Include="Analysis\Topology\Voronoi\HashSet.cs" />
+    <Compile Include="Analysis\Topology\Voronoi\ToolBox.cs" />
+    <Compile Include="Analysis\Topology\Voronoi\Vector2.cs" />
+    <Compile Include="Analysis\Topology\Voronoi\VEvent.cs" />
+    <Compile Include="Analysis\Topology\Voronoi\VNode.cs" />
+    <Compile Include="Analysis\Topology\Voronoi\Voronoi.cs" />
+    <Compile Include="Analysis\Topology\Voronoi\VoronoiEdge.cs" />
+    <Compile Include="Analysis\Topology\Voronoi\VoronoiGraph.cs" />
+    <Compile Include="Command.cs" />
+    <Compile Include="Components\Angles\AngleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Angles\AnglePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\Angles\AngleTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\Angles\IErrorCheck.cs" />
+    <Compile Include="Components\Angles\ValidTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\AttributeTable\TableEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CategoryControls\BarGraph.cs" />
+    <Compile Include="Components\CategoryControls\ColorRange.cs" />
+    <Compile Include="Components\CategoryControls\ColorRangeEventArgs.cs" />
+    <Compile Include="Components\CategoryControls\RasterCategoryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CategoryControls\LineSymbolView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\CategoryControls\FeatureCategoryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CategoryControls\FeatureSizeRangeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CategoryControls\FeatureSizeRange.cs" />
+    <Compile Include="Components\CategoryControls\SizeRangeEventArgs.cs" />
+    <Compile Include="Components\CategoryControls\PointSymbolView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\CategoryControls\TabColorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CategoryControls\TextFont.cs" />
+    <Compile Include="Components\CharacterControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\CollectionControls\CollectionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CollectionControls\PatternCollectionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CollectionControls\SymbolCollectionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CollectionControls\DecorationCollectionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CollectionControls\StrokeCollectionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CollectionControls\SymbolizerCollectionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\ColorControls\ColorBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\ColorControls\ColorButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\ColorControls\ColorDropDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\ColorPanelStyle.cs" />
+    <Compile Include="Components\CustomPattern\ButtonStates.cs" />
+    <Compile Include="Components\CustomPattern\ButtonStatesEM.cs" />
+    <Compile Include="Components\CustomPattern\DashControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\CustomPattern\DashSlider.cs" />
+    <Compile Include="Components\CustomPattern\DashSliderHorizontal.cs" />
+    <Compile Include="Components\CustomPattern\DashSliderVertical.cs" />
+    <Compile Include="Components\CustomPattern\SquareButton.cs" />
+    <Compile Include="Components\DataDialogs\DialogImages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DialogImages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Components\DataDialogs\DirectoryItem.cs">
+    </Compile>
+    <Compile Include="Components\DataDialogs\DirectoryView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\DataDialogs\FileItem.cs">
+    </Compile>
+    <Compile Include="Components\DataDialogs\FolderItem.cs">
+    </Compile>
+    <Compile Include="Components\DataDialogs\HighlightEventArgs.cs" />
+    <Compile Include="Components\DataDialogs\ItemTypes.cs" />
+    <Compile Include="Components\DataDialogs\NavigateEventArgs.cs" />
+    <Compile Include="Components\DataDialogs\OpenFileElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\DataDialogs\SelectEventArgs.cs" />
+    <Compile Include="Components\DialogButtons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\DoubleBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\DynamicVisibilityControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\FontBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\FontFamilyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\FontFamilyControl.Designer.cs">
+      <DependentUpon>FontFamilyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\FontFamilyDropDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\GradientControls\ColorLever.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\GradientControls\TwoColorHandle.cs" />
+    <Compile Include="Components\GradientControls\TwoColorSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\GradientControls\HueHandle.cs" />
+    <Compile Include="Components\GradientControls\HueSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\GradientControls\GradientControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\GradientControls\GradientSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\GradientControls\RoundedHandle.cs" />
+    <Compile Include="Components\LabelAlignment\LabelAlignmentButton.cs" />
+    <Compile Include="Components\LabelAlignment\LabelAlignmentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\LabelAlignment\LabelAlignmentPicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\Managers\PanelManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\Img\Coordinate.cs" />
+    <Compile Include="Data\Img\Datum.cs" />
+    <Compile Include="Data\Img\DatumType.cs" />
+    <Compile Include="Data\Img\EPRJ.cs" />
+    <Compile Include="Data\Img\EPT.cs" />
+    <Compile Include="Data\Img\ExtensionMethods.cs" />
+    <Compile Include="Data\Img\Hfa.cs" />
+    <Compile Include="Data\Img\HfaAccess.cs" />
+    <Compile Include="Data\Img\HfaCompress.cs" />
+    <Compile Include="Data\Img\HfaDictionary.cs" />
+    <Compile Include="Data\Img\HfaEntry.cs" />
+    <Compile Include="Data\Img\HfaEnumerationNotFoundException.cs" />
+    <Compile Include="Data\Img\HfaField.cs" />
+    <Compile Include="Data\Img\HfaInfo.cs" />
+    <Compile Include="Data\Img\HfaInvalidCountException.cs" />
+    <Compile Include="Data\Img\HfaNotCompressedException.cs" />
+    <Compile Include="Data\Img\HfaPointerInsertNotSupportedException.cs" />
+    <Compile Include="Data\Img\HfaType.cs" />
+    <Compile Include="Data\Img\HfaTypeException.cs" />
+    <Compile Include="Data\Img\ImgResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImgResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Img\MapInfo.cs" />
+    <Compile Include="Data\Img\NAD.cs" />
+    <Compile Include="Data\Img\ProParameters.cs" />
+    <Compile Include="Data\Img\ProType.cs" />
+    <Compile Include="Data\Img\Size.cs" />
+    <Compile Include="Data\Img\Spheroid.cs" />
+    <Compile Include="Data\Images\Png\BitDepths.cs" />
+    <Compile Include="Data\Images\Png\ColorTypes.cs" />
+    <Compile Include="Data\Images\Png\CRC32.cs" />
+    <Compile Include="Data\Images\IImageSet.cs" />
+    <Compile Include="Data\Images\IImageSource.cs" />
+    <Compile Include="Data\Images\ITiledImage.cs" />
+    <Compile Include="Data\Images\IImageCoverage.cs" />
+    <Compile Include="Data\Images\ImageCoverage.cs" />
+    <Compile Include="Data\Images\Png\Deflate.cs" />
+    <Compile Include="Data\Images\Png\InterlaceMethods.cs" />
+    <Compile Include="Data\Images\Png\MwPng.cs" />
+    <Compile Include="Data\Images\Png\PngHeader.cs" />
+    <Compile Include="Data\Images\Png\PngInsuficientLengthException.cs" />
+    <Compile Include="Data\Images\Png\PngInvalidSignatureException.cs" />
+    <Compile Include="Data\Images\Pyramid\PyramidByteMismatchException.cs" />
+    <Compile Include="Data\Images\Pyramid\PyramidException.cs" />
+    <Compile Include="Data\Images\Pyramid\PyramidHeader.cs" />
+    <Compile Include="Data\Images\Pyramid\PyramidImage.cs" />
+    <Compile Include="Data\Images\Pyramid\PyramidImageHeader.cs" />
+    <Compile Include="Data\Images\Pyramid\PyramidOutOfBoundsException.cs" />
+    <Compile Include="Data\Images\Pyramid\PyramidUndefinedHeaderException.cs" />
+    <Compile Include="Data\Images\TileCollection.cs" />
+    <Compile Include="Data\Images\TiledImage.cs" />
+    <Compile Include="Data\StreamEm.cs" />
+    <Compile Include="Data\Vectors\Internal\WKB\FeatureSetPack.cs" />
+    <Compile Include="Data\Vectors\Internal\WKB\WKBGeometryTypes.cs" />
+    <Compile Include="Data\Vectors\Internal\WKB\WKBFeatureReader.cs" />
+    <Compile Include="Data\Vectors\SegmentRange.cs" />
+    <Compile Include="Data\Vectors\FeatureListEm.cs" />
+    <Compile Include="Data\Vectors\FeatureTypeMismatchException.cs" />
+    <Compile Include="Data\Vectors\Segment.cs" />
+    <Compile Include="Data\Vectors\Shape.cs" />
+    <Compile Include="Data\Vectors\UnspecifiedFeaturetypeException.cs" />
+    <Compile Include="Drawing\CopyBasea.cs" />
+    <Compile Include="Drawing\Descriptora.cs" />
+    <Compile Include="Drawing\DynamicVisibilityModes.cs" />
+    <Compile Include="Drawing\FieldInfoEm.cs" />
+    <Compile Include="Drawing\IDescriptora.cs" />
+    <Compile Include="Drawing\IGroup.cs">
+    </Compile>
+    <Compile Include="Components\LegendBox.cs" />
+    <Compile Include="Components\Legend\DrawLegendItemArgs.cs" />
+    <Compile Include="Components\Legend\Legend.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\LineJoinControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Managers\ApplicationManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\Managers\PluginAttribute.cs" />
+    <Compile Include="Components\Managers\TokenManager.cs">
+    </Compile>
+    <Compile Include="Components\Managers\PluginToken.cs" />
+    <Compile Include="Components\mwProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\OutlineControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\PredefinedSymbols\PredefinedLineSymbolControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\PredefinedSymbols\SymbolPreview.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\RampSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\StatisticalBreaks\BreakSlider.cs" />
+    <Compile Include="Components\StatisticalBreaks\BreakSliderEventArgs.cs" />
+    <Compile Include="Components\StatisticalBreaks\BreakSliderGraph.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\Extent.cs" />
+    <Compile Include="Data\Vectors\ByteBlock.cs" />
+    <Compile Include="Data\Vectors\Internal\Shapefiles\Attributes\AttributeCache.cs" />
+    <Compile Include="Data\Vectors\Internal\Shapefiles\Attributes\AttributePager.cs" />
+    <Compile Include="Data\Vectors\Internal\Shapefiles\Attributes\IAttributeSource.cs" />
+    <Compile Include="Data\Vectors\Vertex.cs" />
+    <Compile Include="Drawing\Category.cs" />
+    <Compile Include="Drawing\ILayerEvents.cs" />
+    <Compile Include="Drawing\Images\ITiledImageLayer.cs" />
+    <Compile Include="Drawing\Images\TiledImageLayer.cs" />
+    <Compile Include="Drawing\IMatchablea.cs" />
+    <Compile Include="Drawing\IRandomizablea.cs" />
+    <Compile Include="Drawing\Labels\FastLabelDrawnState.cs" />
+    <Compile Include="Drawing\MatchableEMa.cs" />
+    <Compile Include="Drawing\PropertyInfoEM.cs" />
+    <Compile Include="Drawing\Rasters\IColorCategory.cs" />
+    <Compile Include="Drawing\IScheme.cs" />
+    <Compile Include="Drawing\Rasters\IColorScheme.cs" />
+    <Compile Include="Drawing\Rasters\ColorCategoryCollection.cs" />
+    <Compile Include="Drawing\Rasters\ColorScheme.cs" />
+    <Compile Include="Drawing\Scheme.cs" />
+    <Compile Include="Drawing\ICategory.cs" />
+    <Compile Include="Drawing\Range.cs" />
+    <Compile Include="Drawing\EditorSettings.cs" />
+    <Compile Include="Drawing\Rasters\RasterEditorSettings.cs" />
+    <Compile Include="Drawing\ShallowCopya.cs" />
+    <Compile Include="Drawing\Vectors\ClassificationTypes.cs" />
+    <Compile Include="Drawing\Vectors\IIndexSelection.cs" />
+    <Compile Include="Drawing\Vectors\IndexSelection.cs" />
+    <Compile Include="Drawing\Vectors\IntervalMethods.cs" />
+    <Compile Include="Components\StatisticalBreaks\StatisticalEventArgs.cs" />
+    <Compile Include="Drawing\Vectors\Statistics.cs" />
+    <Compile Include="Components\SymbolSizeChooser\Size2DDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\SymbolSizeChooser\SizeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\SQLQueryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\SymbolSizeChooser\SizeBox.cs" />
+    <Compile Include="Components\SymbolSizeChooser\SymbolSizeChooser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\VerticalScrollControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\BoxStatistics.cs" />
+    <Compile Include="Data\CoordinateTypes.cs" />
+    <Compile Include="Data\DataTableStatisticsEM.cs" />
+    <Compile Include="Data\Images\BitmapGrid.cs" />
+    <Compile Include="Data\Rasters\Internal\Generic\BgdRaster.cs" />
+    <Compile Include="Data\Rasters\Internal\Generic\ValueGrid.cs" />
+    <Compile Include="Data\Rasters\Internal\Generic\Raster.cs" />
+    <Compile Include="Data\SpaceTimeSupport.cs" />
+    <Compile Include="Data\Vectors\DataSet.cs" />
+    <Compile Include="Data\Vectors\FeatureEM.cs" />
+    <Compile Include="Data\Vectors\FeatureSetEM.cs" />
+    <Compile Include="Data\Vectors\FieldJoinType.cs" />
+    <Compile Include="Drawing\ChangedObjectEventArgs.cs" />
+    <Compile Include="Drawing\CloneableEM.cs" />
+    <Compile Include="Drawing\ColorEM.cs" />
+    <Compile Include="Drawing\GraphicsPathEM.cs" />
+    <Compile Include="Drawing\IPropertyDialogProvider.cs" />
+    <Compile Include="Drawing\ISelectable.cs" />
+    <Compile Include="Drawing\Labels\ILabelCategory.cs" />
+    <Compile Include="Drawing\Labels\ILabelScheme.cs" />
+    <Compile Include="Drawing\Labels\LabelCategory.cs" />
+    <Compile Include="Drawing\Labels\LabelDrawState.cs" />
+    <Compile Include="Drawing\Labels\LabelMethodEnumerations.cs" />
+    <Compile Include="Drawing\Labels\LabelScheme.cs" />
+    <Compile Include="Drawing\Position2D.cs" />
+    <Compile Include="Drawing\PredefinedSymbols\CustomLineSymbolProvider.cs" />
+    <Compile Include="Drawing\PredefinedSymbols\CustomPolygonSymbolizer.cs" />
+    <Compile Include="Drawing\PredefinedSymbols\CustomPointSymbolizer.cs" />
+    <Compile Include="Drawing\PredefinedSymbols\CustomLineSymbolizer.cs" />
+    <Compile Include="Drawing\PredefinedSymbols\CustomSymbolizer.cs" />
+    <Compile Include="Drawing\PredefinedSymbols\CustomSymbolizerCollectionEM.cs" />
+    <Compile Include="Drawing\PredefinedSymbols\CustomSymbolProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\PredefinedSymbols\ICustomSymbolizer.cs" />
+    <Compile Include="Drawing\PredefinedSymbols\ICustomLineSymbolProvider.cs" />
+    <Compile Include="Drawing\PredefinedSymbols\SymbolizerTypes.cs" />
+    <Compile Include="Drawing\PropertyDialogProvider.cs" />
+    <Compile Include="Drawing\RandomEM.cs" />
+    <Compile Include="Drawing\RectangleEM.cs" />
+    <Compile Include="Drawing\SelectableEM.cs" />
+    <Compile Include="Drawing\Vectors\FeatureEditorSettings.cs" />
+    <Compile Include="Drawing\Vectors\FastDrawnState.cs" />
+    <Compile Include="Drawing\Vectors\FeatureLayer.cs" />
+    <Compile Include="Drawing\Vectors\FeatureLayerEventArgs.cs" />
+    <Compile Include="Drawing\Vectors\FeatureLayerSelectionEventArgs.cs" />
+    <Compile Include="Drawing\Vectors\FeatureSymbolizer.cs" />
+    <Compile Include="Drawing\Vectors\FeatureSymbolizerEventArgs.cs" />
+    <Compile Include="Drawing\Vectors\IFeatureSymbolizer.cs" />
+    <Compile Include="Drawing\Vectors\IntervalSnapMethods.cs" />
+    <Compile Include="Drawing\Vectors\Lines\LineSymbolizerEventArgs.cs" />
+    <Compile Include="Drawing\Vectors\Lines\Strokes\ILineDecoration.cs" />
+    <Compile Include="Drawing\Vectors\ModifySelectionModes.cs" />
+    <Compile Include="Data\Rasters\ExtensionMethods\RasterBoundsEM.cs" />
+    <Compile Include="Data\Rasters\Smoother.cs" />
+    <Compile Include="Data\Vectors\FeatureEventArgs.cs" />
+    <Compile Include="Data\Vectors\IFeatureList.cs" />
+    <Compile Include="Data\Vectors\FeatureList.cs" />
+    <Compile Include="Data\Vectors\PartRange.cs" />
+    <Compile Include="Data\Vectors\VertexRange.cs" />
+    <Compile Include="Drawing\Changeable.cs" />
+    <Compile Include="Drawing\FilterCollectionEM.cs" />
+    <Compile Include="Drawing\Group.cs">
+    </Compile>
+    <Compile Include="Drawing\IChangeable.cs" />
+    <Compile Include="Drawing\ImageProjection.cs" />
+    <Compile Include="Drawing\Images\IImageLayer.cs" />
+    <Compile Include="Drawing\Images\IImageSymbolizer.cs" />
+    <Compile Include="Drawing\Images\ImageLayer.cs">
+    </Compile>
+    <Compile Include="Drawing\Images\ImageSymbolizer.cs" />
+    <Compile Include="Drawing\IRenderableLegendItem.cs" />
+    <Compile Include="Drawing\LegendItem.cs">
+    </Compile>
+    <Compile Include="Drawing\LegendItemEM.cs" />
+    <Compile Include="Drawing\LegendType.cs" />
+    <Compile Include="Drawing\ProjEM.cs" />
+    <Compile Include="Drawing\RenderableLegendItem.cs">
+    </Compile>
+    <Compile Include="Drawing\SnapShotEventArgs.cs" />
+    <Compile Include="Drawing\IProj.cs" />
+    <Compile Include="Drawing\Vectors\DrawingFilter.cs" />
+    <Compile Include="Drawing\Vectors\DrawnState.cs" />
+    <Compile Include="Drawing\Vectors\FeatureCategory.cs">
+    </Compile>
+    <Compile Include="Drawing\Vectors\FeatureCategoryCollection.cs" />
+    <Compile Include="Drawing\Vectors\FeatureLayerEM.cs" />
+    <Compile Include="Drawing\Vectors\FeatureSelection.cs" />
+    <Compile Include="Drawing\Vectors\FilterTypes.cs" />
+    <Compile Include="Drawing\Vectors\IDrawingFilter.cs" />
+    <Compile Include="Drawing\Vectors\IDrawnState.cs" />
+    <Compile Include="Drawing\Vectors\IFeatureCategory.cs" />
+    <Compile Include="Drawing\Vectors\IFeatureSelection.cs" />
+    <Compile Include="Drawing\Vectors\ISelection.cs" />
+    <Compile Include="Drawing\Vectors\Lines\ILineCategory.cs" />
+    <Compile Include="Drawing\Vectors\Lines\ILineScheme.cs" />
+    <Compile Include="Drawing\Vectors\Lines\Strokes\CartographicStroke.cs" />
+    <Compile Include="Drawing\Vectors\Lines\Strokes\ICartographicStroke.cs" />
+    <Compile Include="Drawing\Vectors\Lines\Strokes\ISimpleStroke.cs" />
+    <Compile Include="Drawing\Vectors\Lines\Strokes\IStroke.cs" />
+    <Compile Include="Drawing\Vectors\Lines\LineCategory.cs">
+    </Compile>
+    <Compile Include="Drawing\Vectors\Lines\LineCategoryCollection.cs" />
+    <Compile Include="Drawing\Vectors\Lines\LineFeatureTypeException.cs" />
+    <Compile Include="Drawing\Vectors\Lines\LineScheme.cs">
+    </Compile>
+    <Compile Include="Drawing\Vectors\Lines\Strokes\LineDecoration.cs" />
+    <Compile Include="Drawing\Vectors\Lines\Strokes\SimpleStroke.cs" />
+    <Compile Include="Drawing\Vectors\Lines\Strokes\Stroke.cs" />
+    <Compile Include="Drawing\Vectors\Lines\Strokes\StrokeStyles.cs" />
+    <Compile Include="Drawing\Vectors\FeatureScheme.cs">
+    </Compile>
+    <Compile Include="Drawing\Vectors\IFeatureScheme.cs" />
+    <Compile Include="Drawing\Vectors\Points\PointSchemeFactory.cs" />
+    <Compile Include="Drawing\Vectors\Points\PointSymbolizerEventArgs.cs" />
+    <Compile Include="Drawing\Vectors\Points\Symbols\CharacterSubsets.cs" />
+    <Compile Include="Drawing\Vectors\Points\Symbols\CharacterSymbol.cs">
+    </Compile>
+    <Compile Include="Drawing\Vectors\Points\Symbols\ICharacterSymbol.cs" />
+    <Compile Include="Drawing\Vectors\Points\IPointCategory.cs" />
+    <Compile Include="Drawing\Vectors\Points\IPointScheme.cs" />
+    <Compile Include="Drawing\Vectors\PointCategoryCollectionEditor.cs" />
+    <Compile Include="Drawing\Vectors\Points\IPointSymbolizer.cs" />
+    <Compile Include="Drawing\Vectors\Points\PointFeatureTypeException.cs" />
+    <Compile Include="Drawing\Vectors\Points\PointScheme.cs">
+    </Compile>
+    <Compile Include="Drawing\Vectors\Points\PointCategory.cs">
+    </Compile>
+    <Compile Include="Drawing\Vectors\Points\PointCategoryCollection.cs" />
+    <Compile Include="Drawing\Size2D.cs" />
+    <Compile Include="Drawing\Vectors\Points\PointSymbolizer.cs" />
+    <Compile Include="Drawing\Vectors\Points\Symbols\IColorable.cs" />
+    <Compile Include="Drawing\Vectors\Points\Symbols\IOutlined.cs" />
+    <Compile Include="Drawing\Vectors\Points\Symbols\IOutlinedSymbol.cs" />
+    <Compile Include="Drawing\Vectors\Points\Symbols\OutlinedSymbol.cs" />
+    <Compile Include="Drawing\Vectors\Points\Symbols\PictureModes.cs" />
+    <Compile Include="Drawing\Vectors\Points\Symbols\IPictureSymbol.cs" />
+    <Compile Include="Drawing\Vectors\Points\Symbols\ISimpleSymbol.cs" />
+    <Compile Include="Drawing\Vectors\Points\Symbols\ISymbol.cs" />
+    <Compile Include="Drawing\Vectors\Points\Symbols\PictureSymbol.cs" />
+    <Compile Include="Drawing\Vectors\Points\Symbols\PointTypes.cs" />
+    <Compile Include="Drawing\Vectors\Points\Symbols\SimpleSymbol.cs" />
+    <Compile Include="Drawing\Vectors\Points\Symbols\Symbol.cs" />
+    <Compile Include="Drawing\Vectors\Points\Symbols\SymbolListEM.cs" />
+    <Compile Include="Drawing\Vectors\Points\Symbols\SymbolTypes.cs" />
+    <Compile Include="Drawing\Vectors\Polygons\IPolygonCategory.cs" />
+    <Compile Include="Drawing\Vectors\Polygons\IPolygonScheme.cs" />
+    <Compile Include="Drawing\Vectors\Polygons\IPolygonSymbolizer.cs" />
+    <Compile Include="Drawing\Vectors\Polygons\Patterns\IHatchPattern.cs" />
+    <Compile Include="Drawing\Vectors\Polygons\Patterns\HatchPattern.cs" />
+    <Compile Include="Drawing\Vectors\Polygons\Patterns\GradientPattern.cs" />
+    <Compile Include="Drawing\Vectors\Polygons\Patterns\GradientTypes.cs" />
+    <Compile Include="Drawing\Vectors\Polygons\Patterns\IGradientPattern.cs" />
+    <Compile Include="Drawing\Vectors\Polygons\Patterns\IPattern.cs" />
+    <Compile Include="Drawing\Vectors\Polygons\Patterns\IPicturePattern.cs" />
+    <Compile Include="Drawing\Vectors\Polygons\Patterns\ISimplePattern.cs" />
+    <Compile Include="Drawing\Vectors\Polygons\Patterns\Pattern.cs" />
+    <Compile Include="Drawing\Vectors\Polygons\Patterns\PatternTypes.cs" />
+    <Compile Include="Drawing\Vectors\Polygons\Patterns\PicturePattern.cs" />
+    <Compile Include="Drawing\Vectors\Polygons\Patterns\SimplePattern.cs" />
+    <Compile Include="Drawing\Vectors\Polygons\PolygonCategory.cs">
+    </Compile>
+    <Compile Include="Drawing\Vectors\Polygons\PolygonCategoryCollection.cs" />
+    <Compile Include="Drawing\Vectors\Polygons\PolygonFeatureTypeException.cs" />
+    <Compile Include="Drawing\Vectors\Polygons\PolygonScheme.cs">
+    </Compile>
+    <Compile Include="Drawing\Vectors\Polygons\PolygonSymbolizer.cs" />
+    <Compile Include="Drawing\Vectors\Polygons\PolygonSymbolizerEventArgs.cs" />
+    <Compile Include="Drawing\Vectors\QuickSchemeTypes.cs" />
+    <Compile Include="Drawing\Vectors\Selection.cs" />
+    <Compile Include="Drawing\Vectors\SelectionEM.cs" />
+    <Compile Include="Drawing\Vectors\SelectionInverse.cs" />
+    <Compile Include="Drawing\Vectors\SelectionModes.cs" />
+    <Compile Include="Data\Rasters\ExtensionMethods\RasterEM.cs" />
+    <Compile Include="Drawing\Vectors\ExpressionEventArgs.cs" />
+    <Compile Include="Forms\Attributes\AddNewColum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Attributes\AddNewColum.Designer.cs">
+      <DependentUpon>AddNewColum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddToMapDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Attributes\AttributeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Attributes\CalculatorUserGuide.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Attributes\CalculatorUserGuide.Designer.cs">
+      <DependentUpon>CalculatorUserGuide.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Attributes\SelectField.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CollectionPropertyGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddCustomSymbolDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Attributes\DeleteFields.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Attributes\DeleteFields.Designer.cs">
+      <DependentUpon>DeleteFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Symbology\DetailedLineSymbolControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\DynamicVisibilityModeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProgressCancelDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RasterLayerDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Editors\StringCollectionEditor.cs" />
+    <Compile Include="Forms\Symbology\DetailedLineSymbolDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\Symbology\DetailedPointSymbolControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Symbology\DetailedPointSymbolDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\Symbology\DetailedPolygonSymbolControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Symbology\DetailedPolygonSymbolDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Editors\AngleEditor.cs" />
+    <Compile Include="Forms\Editors\BitmapFileNameEditor.cs" />
+    <Compile Include="Forms\Editors\AzimuthAngleEditor.cs" />
+    <Compile Include="Forms\Editors\LayoutLayerEditor.cs" />
+    <Compile Include="Forms\Editors\ZenithEditor.cs" />
+    <Compile Include="Forms\Editors\LayoutMapEditor.cs" />
+    <Compile Include="Forms\Editors\OpacityEditor.cs" />
+    <Compile Include="Forms\Attributes\AttributeCalculator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Attributes\AttributeCalculator.Designer.cs">
+      <DependentUpon>AttributeCalculator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Attributes\FunClass.cs" />
+    <Compile Include="Forms\LayoutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PageSetupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Editors\PolygonSymbolizerEditor.cs" />
+    <Compile Include="Forms\Editors\PointSymbolizerEditor.cs" />
+    <Compile Include="Forms\Editors\PointSchemePropertyGridEditor.cs" />
+    <Compile Include="Forms\Editors\LineSchemePropertyGridEditor.cs" />
+    <Compile Include="Forms\Editors\ExpressionEditor.cs" />
+    <Compile Include="Forms\Editors\PolygonSchemePropertyGridEditor.cs" />
+    <Compile Include="Forms\Editors\LineSymbolizerEditor.cs" />
+    <Compile Include="Forms\Editors\StrokesEditor.cs" />
+    <Compile Include="Forms\ExportFeature.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FeatureLayerDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Symbology\LineSymbolDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ListBoxDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Editors\CharacterCodeEditor.cs" />
+    <Compile Include="Forms\Editors\DynamicVisibilityEditor.cs" />
+    <Compile Include="Forms\Editors\FontFamilyNameEditor.cs" />
+    <Compile Include="Forms\FeatureIdentifier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProjectionCustomDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProjectionSelectDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\QueryDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Attributes\ReNameField.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Attributes\ReNameField.Designer.cs">
+      <DependentUpon>ReNameField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Attributes\Replace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Attributes\Replace.Designer.cs">
+      <DependentUpon>Replace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SelectByAttributes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SQLExpressionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Symbology\StatisticalBreaksDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TabColorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TypeConverters\CategoryCollectionConverter.cs" />
+    <Compile Include="Forms\TypeConverters\Size2DConverter.cs" />
+    <Compile Include="Forms\TypeConverters\Position2DConverter.cs" />
+    <Compile Include="Forms\TypeConverters\DynamicVisibilityTypeConverter.cs" />
+    <Compile Include="Forms\TypeConverters\PointFConverter.cs" />
+    <Compile Include="Geometries\Coordinate.cs" />
+    <Compile Include="Geometries\ExtensionMethods\CoordinateEM.cs" />
+    <Compile Include="Geometries\ExtensionMethods\EnvelopeEM.cs" />
+    <Compile Include="Geometries\ExtensionMethods\IEnumerableEM.cs" />
+    <Compile Include="Geometries\ExtensionMethods\InsufficientDimensionsException.cs" />
+    <Compile Include="Geometries\ExtensionMethods\RectangleEM.cs" />
+    <Compile Include="Geometries\IRectangle.cs" />
+    <Compile Include="Geometries\RectangleFEM.cs" />
+    <Compile Include="Geometries\Utilities\GeometryTransformer.cs" />
+    <Compile Include="Internal\IO\BEBinaryReader.cs" />
+    <Compile Include="Internal\IO\WKBReader.cs" />
+    <Compile Include="Layout\Components\LayoutMapToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\Components\LayoutControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Layout\Components\LayoutDocToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\Components\LayoutInsertToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\Elements\LayoutLegend.cs" />
+    <Compile Include="Layout\Elements\LayoutScaleBar.cs" />
+    <Compile Include="Layout\Elements\LayoutMap.cs" />
+    <Compile Include="Layout\LayoutEnums.cs" />
+    <Compile Include="Layout\Components\LayoutListBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Layout\Components\LayoutMenuStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\Components\LayoutPropertyGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Layout\Components\LayoutZoomToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\Elements\LayoutBitmap.cs" />
+    <Compile Include="Layout\Elements\LayoutElement.cs" />
+    <Compile Include="Layout\Elements\LayoutNorthArrow.cs" />
+    <Compile Include="Layout\Elements\LayoutRectangle.cs" />
+    <Compile Include="Layout\Elements\LayoutText.cs" />
+    <Compile Include="Main\BaseCollection.cs" />
+    <Compile Include="Main\BaseList.cs" />
+    <Compile Include="Main\CopyList.cs" />
+    <Compile Include="Main\EventArguments\LayerSelectedEventArgs.cs" />
+    <Compile Include="Main\Exceptions\ReadOnlyException.cs" />
+    <Compile Include="Main\IChangeEvent.cs" />
+    <Compile Include="Main\IListEM.cs" />
+    <Compile Include="Main\INamedList.cs" />
+    <Compile Include="Main\IReadOnlyList.cs" />
+    <Compile Include="Main\NamedList.cs" />
+    <Compile Include="Main\ReadOnlyList.cs" />
+    <Compile Include="Legacy\AppInfo.cs" />
+    <Compile Include="Legacy\Layers.cs" />
+    <Compile Include="Legacy\LegacyPluginManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Legacy\LegacyPluginManager.designer.cs">
+      <DependentUpon>LegacyPluginManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Managers\DataFormats.cs" />
+    <Compile Include="Components\ScrollingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\ToolStrips\mwToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\TryXMLDocumentException.cs" />
+    <Compile Include="Data\FieldDataTypes.cs" />
+    <Compile Include="Data\Images\DotNetImageProvider.cs" />
+    <Compile Include="Data\Images\IImageData.cs" />
+    <Compile Include="Data\Images\ImageData.cs" />
+    <Compile Include="Data\Images\MWImageData.cs" />
+    <Compile Include="Data\Images\WorldFile.cs" />
+    <Compile Include="Data\PluginInfo.cs" />
+    <Compile Include="Data\ProjectDocument.cs" />
+    <Compile Include="Data\ProjectReader.cs" />
+    <Compile Include="Data\Rasters\AffineTransform.cs" />
+    <Compile Include="Data\ResizeBehaviors.cs" />
+    <Compile Include="Data\ScaleBarInfo.cs" />
+    <Compile Include="Data\ScaleBarPositions.cs" />
+    <Compile Include="Data\StatusBarInfo.cs" />
+    <Compile Include="Data\TryXmlDocument.cs" />
+    <Compile Include="Drawing\Labels\Obsolete\ILabel.cs" />
+    <Compile Include="Drawing\Labels\ILabelLayer.cs" />
+    <Compile Include="Drawing\Labels\Obsolete\ITextSymbolGroup.cs" />
+    <Compile Include="Drawing\Labels\Obsolete\ITextSymbolGroupCollection.cs" />
+    <Compile Include="Drawing\Labels\ILabelSymbolizer.cs" />
+    <Compile Include="Drawing\Labels\Obsolete\Label.cs" />
+    <Compile Include="Drawing\Labels\LabelLayer.cs">
+    </Compile>
+    <Compile Include="Drawing\Labels\Obsolete\TextSymbolChangedEventArgs.cs" />
+    <Compile Include="Drawing\Labels\Obsolete\TextSymbolGroup.cs">
+    </Compile>
+    <Compile Include="Drawing\Labels\Obsolete\TextSymbolGroupCollection.cs" />
+    <Compile Include="Drawing\Labels\LabelSymbolizer.cs" />
+    <Compile Include="Components\Managers\IPluginManager.cs" />
+    <Compile Include="Components\Managers\LayerManager.cs">
+    </Compile>
+    <Compile Include="Components\Managers\ILayerManager.cs" />
+    <Compile Include="Components\Managers\DataManager.cs">
+    </Compile>
+    <Compile Include="Components\Managers\IDataManager.cs" />
+    <Compile Include="Components\Enums.cs" />
+    <Compile Include="Components\IHandlerExt.cs" />
+    <Compile Include="Components\Legend\ILegend.cs" />
+    <Compile Include="Components\Legend\ILegendHandler.cs" />
+    <Compile Include="Components\Managers\PluginInitializeEventArgs.cs" />
+    <Compile Include="Components\Managers\PluginManager.cs">
+    </Compile>
+    <Compile Include="Components\Managers\PluginManager.designer.cs">
+      <DependentUpon>PluginManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Vectors\Internal\Shapefiles\Attributes\AttributeTable.cs" />
+    <Compile Include="Data\Vectors\Internal\Shapefiles\NumberConverter.cs" />
+    <Compile Include="Data\Vectors\Internal\Shapefiles\NumberException.cs" />
+    <Compile Include="Drawing\FeatureChangeEnvelopeArgs.cs" />
+    <Compile Include="Drawing\LayerEventList.cs" />
+    <Compile Include="Drawing\ILayer.cs" />
+    <Compile Include="Drawing\DrawArgs.cs" />
+    <Compile Include="Drawing\DrawWindowArgs.cs" />
+    <Compile Include="Drawing\EnvelopeArgs.cs" />
+    <Compile Include="Drawing\ILayerCollection.cs" />
+    <Compile Include="Drawing\ILegendItem.cs" />
+    <Compile Include="Components\Managers\ILogManager.cs">
+    </Compile>
+    <Compile Include="Components\Managers\LogManager.cs">
+    </Compile>
+    <Compile Include="Components\Managers\ProcessManager.cs">
+    </Compile>
+    <Compile Include="Components\mwStatusStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\mwStatusStrip.Designer.cs">
+      <DependentUpon>mwStatusStrip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Drawing\IRenderable.cs" />
+    <Compile Include="Drawing\LayerEnumerator.cs" />
+    <Compile Include="Drawing\FeatureChangeArgs.cs" />
+    <Compile Include="Drawing\Opp.cs" />
+    <Compile Include="Drawing\SimpleLayerEventArgs.cs" />
+    <Compile Include="Drawing\LegendIcon.cs">
+    </Compile>
+    <Compile Include="Drawing\DrawWindow.cs" />
+    <Compile Include="Forms\LabelSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OpenDataDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\ToolModes.cs" />
+    <Compile Include="Components\IBasicMap.cs" />
+    <Compile Include="Components\IMapView.cs" />
+    <Compile Include="Geometries\CoordinateMismatchException.cs" />
+    <Compile Include="Geometries\IMatrix.cs" />
+    <Compile Include="Geometries\IMatrix4.cs" />
+    <Compile Include="Geometries\IMatrixD.cs" />
+    <Compile Include="Geometries\Matrix4.cs" />
+    <Compile Include="Geometries\MatrixD.cs" />
+    <Compile Include="Geometries\PolygonException.cs" />
+    <Compile Include="Geometries\SizeD.cs" />
+    <Compile Include="Drawing\Rasters\BinaryLayerProvider.cs" />
+    <Compile Include="Drawing\Rasters\IRasterLayer.cs" />
+    <Compile Include="Drawing\Layer.cs">
+    </Compile>
+    <Compile Include="Drawing\RenderBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Drawing\ScaleModes.cs" />
+    <Compile Include="Drawing\SymbolModes.cs" />
+    <Compile Include="Drawing\Vectors\Lines\ILineLayer.cs">
+    </Compile>
+    <Compile Include="Drawing\Vectors\Points\IPointLayer.cs">
+    </Compile>
+    <Compile Include="Drawing\Vectors\Polygons\IPolygonLayer.cs">
+    </Compile>
+    <Compile Include="Drawing\Vectors\ShapefileLayerProvider.cs" />
+    <Compile Include="Drawing\WorldFile.cs" />
+    <Compile Include="Geometries\CoordinateArraySequenceEnumerator.cs" />
+    <Compile Include="Geometries\CoordinateF.cs" />
+    <Compile Include="Geometries\ISize.cs" />
+    <Compile Include="Geometries\FloatVector3.cs" />
+    <Compile Include="Geometries\ICoordinateF.cs" />
+    <Compile Include="Geometries\Vector.cs" />
+    <Compile Include="Globalization\CulturePreferences.cs" />
+    <Compile Include="Components\ItemMouseEventArgs.cs" />
+    <Compile Include="Legacy\MapWin.cs" />
+    <Compile Include="Legacy\MenuItem.cs" />
+    <Compile Include="Legacy\Menus.cs" />
+    <Compile Include="Legacy\UserInteraction.cs" />
+    <Compile Include="Main\BitmapFormatException.cs" />
+    <Compile Include="Main\ChangeEventList.cs" />
+    <Compile Include="Main\IParentItem.cs" />
+    <Compile Include="Main\ITreeList.cs" />
+    <Compile Include="Main\SubclassList.cs" />
+    <Compile Include="Main\TreeList.cs" />
+    <Compile Include="Main\EventArguments\LayerEventArgs.cs" />
+    <Compile Include="Main\EventArguments\LayerProviders.cs" />
+    <Compile Include="Main\Exceptions\CantBeDeletedException.cs" />
+    <Compile Include="Main\IChangeEventList.cs" />
+    <Compile Include="Main\IChangeItem.cs" />
+    <Compile Include="Main\Number.cs" />
+    <Compile Include="Main\NumberFormats.cs" />
+    <Compile Include="Components\PreviewMap\IPreviewMap.cs" />
+    <Compile Include="Components\PreviewMap\IPreviewMapHandler.cs" />
+    <Compile Include="Data\Rasters\IRasterBounds.cs" />
+    <Compile Include="Data\Rasters\RasterBounds.cs" />
+    <Compile Include="Drawing\Rasters\IShadedRelief.cs" />
+    <Compile Include="Drawing\ColorSchemes.cs" />
+    <Compile Include="Forms\Symbology\ColorPicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\Rasters\Internal\Double\DoubleValueGrid.cs" />
+    <Compile Include="Data\Rasters\DoubleRaster.cs" />
+    <Compile Include="Data\Rasters\Internal\Double\DoubleRasterEnumerator.cs" />
+    <Compile Include="Data\Rasters\Internal\Double\DoubleRasterList.cs" />
+    <Compile Include="Data\Rasters\Internal\Float\FloatValueGrid.cs" />
+    <Compile Include="Data\Rasters\FloatRaster.cs" />
+    <Compile Include="Data\Rasters\Internal\Float\FloatRasterList.cs" />
+    <Compile Include="Data\Rasters\Internal\Float\FloatRasterEnumerator.cs" />
+    <Compile Include="Data\Rasters\Internal\Integer\IntValueGrid.cs" />
+    <Compile Include="Data\Rasters\IntRaster.cs" />
+    <Compile Include="Data\Rasters\Internal\Integer\IntRasterList.cs" />
+    <Compile Include="Data\Rasters\Internal\Integer\IntRasterEnumerator.cs" />
+    <Compile Include="Data\Rasters\RasterDataTypes.cs" />
+    <Compile Include="Data\Rasters\RasterFileTypes.cs" />
+    <Compile Include="Data\Rasters\Internal\Short\ShortValueGrid.cs" />
+    <Compile Include="Data\Rasters\ShortRaster.cs" />
+    <Compile Include="Data\Rasters\Internal\Short\ShortRasterEnumerator.cs" />
+    <Compile Include="Data\Rasters\Internal\Short\ShortRasterList.cs" />
+    <Compile Include="Drawing\Vectors\IFeatureLayer.cs" />
+    <Compile Include="Forms\InputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TypeConverters\GeneralTypeConverter.cs" />
+    <Compile Include="Internal\IO\BufferedBinaryWriter.cs" />
+    <Compile Include="Data\Rasters\BinaryRasterProvider.cs" />
+    <Compile Include="Data\Rasters\Internal\Double\BinaryDoubleRaster.cs" />
+    <Compile Include="Data\Rasters\Internal\Float\BinaryFloatRaster.cs" />
+    <Compile Include="Data\Rasters\Internal\Integer\BinaryIntRaster.cs" />
+    <Compile Include="Data\Rasters\IValueGrid.cs" />
+    <Compile Include="Data\IDataSet.cs" />
+    <Compile Include="Internal\IO\BufferedBinaryReader.cs" />
+    <Compile Include="Data\Rasters\IValueRow.cs" />
+    <Compile Include="Data\Rasters\Internal\Short\BinaryShortRaster.cs" />
+    <Compile Include="Data\Rasters\RCIndex.cs" />
+    <Compile Include="Data\Vectors\Internal\Shapefiles\MultiPointShapefile.cs" />
+    <Compile Include="Data\Vectors\Internal\Shapefiles\PolygonShapefile.cs" />
+    <Compile Include="Data\Vectors\Internal\Shapefiles\LineShapefile.cs" />
+    <Compile Include="Data\Vectors\ShapefileDataProvider.cs" />
+    <Compile Include="Data\Vectors\Internal\Shapefiles\ShapeHeader.cs" />
+    <Compile Include="Data\Vectors\Internal\Shapefiles\PointShapefile.cs" />
+    <Compile Include="Data\Vectors\Internal\Shapefiles\Shapefile.cs" />
+    <Compile Include="Data\Vectors\ShapeType.cs" />
+    <Compile Include="Data\Vectors\Internal\Shapefiles\ShapefileHeader.cs" />
+    <Compile Include="Drawing\Rasters\ColorCategory.cs">
+    </Compile>
+    <Compile Include="Drawing\GradientModels.cs" />
+    <Compile Include="Drawing\Rasters\ElevationScenarios.cs" />
+    <Compile Include="Drawing\Rasters\IRasterSymbolizer.cs" />
+    <Compile Include="Drawing\Rasters\RasterLayer.cs">
+    </Compile>
+    <Compile Include="Drawing\Rasters\RasterSymbolizer.cs" />
+    <Compile Include="Drawing\Rasters\ShadedRelief.cs" />
+    <Compile Include="Data\Rasters\Raster.cs" />
+    <Compile Include="Data\Rasters\IRaster.cs" />
+    <Compile Include="Drawing\Vectors\Polygons\PolygonLayer.cs">
+    </Compile>
+    <Compile Include="Main\EventArguments\ProcessCompletedArgs.cs" />
+    <Compile Include="Main\EventArguments\ProcessStartedArgs.cs" />
+    <Compile Include="Main\EventArguments\ProgressChangedArgs.cs" />
+    <Compile Include="Main\EventArguments\RasterSymbolizerArgs.cs" />
+    <Compile Include="Main\Exceptions\Argument\NullLogException.cs" />
+    <Compile Include="Main\Exceptions\Argument\OutOfRangeLogException.cs" />
+    <Compile Include="Main\Exceptions\Argument\TypeLogException.cs" />
+    <Compile Include="Main\ExceptionMessages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExceptionMessages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Exceptions\IO\FileNotFoundLogException.cs" />
+    <Compile Include="Main\Exceptions\ILogException.cs" />
+    <Compile Include="Main\Exceptions\NonNumericLogException.cs" />
+    <Compile Include="Main\Exceptions\Raster\InvalidLowValueException.cs" />
+    <Compile Include="Main\Exceptions\Raster\RangeRequiredBivalueException.cs" />
+    <Compile Include="Main\Exceptions\Raster\RasterUndefinedException.cs" />
+    <Compile Include="Main\Global.cs" />
+    <Compile Include="Main\LayerTypes.cs" />
+    <Compile Include="Main\ValidationType.cs" />
+    <Compile Include="Map\ChunkEventArgs.cs" />
+    <Compile Include="Map\Components\IMap.cs" />
+    <Compile Include="Map\Components\Map.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Map\Components\Map.designer.cs">
+      <DependentUpon>Map.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Map\Components\PluginManager.cs" />
+    <Compile Include="Map\Drawing\Images\IMapImageLayer.cs" />
+    <Compile Include="Map\Drawing\Images\MapImageLayer.cs" />
+    <Compile Include="Map\Drawing\Images\MapTiledImageLayer.cs" />
+    <Compile Include="Map\Drawing\IMapFrame.cs" />
+    <Compile Include="Map\Drawing\IMapGroup.cs" />
+    <Compile Include="Map\Drawing\IMapLayer.cs" />
+    <Compile Include="Map\Drawing\IMapLayerCollection.cs" />
+    <Compile Include="Map\Drawing\Labels\IMapLabelLayer.cs" />
+    <Compile Include="Map\Drawing\Labels\MapDrawTextArgs.cs" />
+    <Compile Include="Map\Drawing\Labels\MapLabelLayer.cs" />
+    <Compile Include="Map\Drawing\MapArgs.cs" />
+    <Compile Include="Map\Drawing\MapDrawArgs.cs" />
+    <Compile Include="Map\Drawing\MapFrame.cs" />
+    <Compile Include="Map\Drawing\MapGroup.cs" />
+    <Compile Include="Map\Drawing\MapLayerCollection.cs" />
+    <Compile Include="Map\Drawing\MapLayerEM.cs" />
+    <Compile Include="Map\Drawing\MapLayerEnumerator.cs" />
+    <Compile Include="Map\Drawing\Rasters\IMapRasterLayer.cs" />
+    <Compile Include="Map\Drawing\Rasters\MapRasterLayer.cs" />
+    <Compile Include="Map\Drawing\Tiles\MapTileLayer.cs" />
+    <Compile Include="Map\Drawing\Vectors\ClipArgs.cs" />
+    <Compile Include="Map\Drawing\Vectors\DuplicationPreventer.cs" />
+    <Compile Include="Map\Drawing\Vectors\IMapFeatureLayer.cs" />
+    <Compile Include="Map\Drawing\Vectors\IMapLineLayer.cs" />
+    <Compile Include="Map\Drawing\Vectors\IMapPointLayer.cs" />
+    <Compile Include="Map\Drawing\Vectors\IMapPolygonLayer.cs" />
+    <Compile Include="Map\Drawing\Vectors\MapFeatureLayerEM.cs" />
+    <Compile Include="Map\Drawing\Vectors\MapLineLayer.cs" />
+    <Compile Include="Map\Drawing\Vectors\MapPointLayer.cs" />
+    <Compile Include="Map\Drawing\Vectors\MapPolygonLayer.cs" />
+    <Compile Include="Map\Drawing\Vectors\SoutherlandHodgman.cs" />
+    <Compile Include="Map\MapTools\ClickZoomFunction.cs" />
+    <Compile Include="Map\MapTools\GeoMouseArgs.cs" />
+    <Compile Include="Map\MapTools\IdentifyFunction.cs" />
+    <Compile Include="Map\MapTools\IMapFunction.cs" />
+    <Compile Include="Map\MapTools\LabelSelectFunction.cs" />
+    <Compile Include="Map\MapTools\MapFunction.cs" />
+    <Compile Include="Map\MapTools\MeasureDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Map\MapTools\MeasureFunction.cs" />
+    <Compile Include="Map\MapTools\MeasureModes.cs" />
+    <Compile Include="Map\MapTools\PanFunction.cs" />
+    <Compile Include="Map\MapTools\SelectFunction.cs" />
+    <Compile Include="Map\MapTools\ZoomFunction.cs" />
+    <Compile Include="Map\MapTools\ZoomOutFunction.cs" />
+    <Compile Include="Map\PlugIn\MapPluginArgs.cs" />
+    <Compile Include="Map\PlugIn\IMapPlugin.cs" />
+    <Compile Include="Map\PlugIn\IMapPluginArgs.cs" />
+    <Compile Include="MessageStrings.zh-CN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MessageStrings.zh-CN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Legacy\IAppInfo.cs" />
+    <Compile Include="Legacy\ClickLocations.cs" />
+    <Compile Include="Legacy\IComboBoxItem.cs" />
+    <Compile Include="Legacy\CursorModes.cs" />
+    <Compile Include="Legacy\IDraw.cs" />
+    <Compile Include="Plugins\Extension.cs" />
+    <Compile Include="Plugins\IExtension.cs" />
+    <Compile Include="Plugins\MapWindowPluginAssembly.cs" />
+    <Compile Include="Legacy\Stipples.cs" />
+    <Compile Include="Legacy\HJustifications.cs" />
+    <Compile Include="Legacy\IIdentifiedLayers.cs" />
+    <Compile Include="Legacy\IdentifiedShapes.cs" />
+    <Compile Include="Legacy\IMapWin.cs" />
+    <Compile Include="Plugins\IVectorLayerProvider.cs" />
+    <Compile Include="Plugins\IRasterLayerProvider.cs" />
+    <Compile Include="Plugins\ILayerProvider.cs" />
+    <Compile Include="Plugins\IProcess.cs" />
+    <Compile Include="Plugins\IVectorProvider.cs" />
+    <Compile Include="Plugins\IImageDataProvider.cs" />
+    <Compile Include="Plugins\IRasterProvider.cs" />
+    <Compile Include="Plugins\ISpecialDataProvider.cs" />
+    <Compile Include="Legacy\ILayerOld.cs" />
+    <Compile Include="Legacy\ILayers.cs" />
+    <Compile Include="Legacy\LayerTypes.cs" />
+    <Compile Include="Legacy\MapCursorModes.cs" />
+    <Compile Include="Legacy\MapWindowDockStyles.cs" />
+    <Compile Include="Legacy\IMenuItem.cs" />
+    <Compile Include="Legacy\IMenus.cs" />
+    <Compile Include="Legacy\IPlugins.cs" />
+    <Compile Include="Legacy\PointTypes.cs" />
+    <Compile Include="Legacy\IPreviewMap.cs" />
+    <Compile Include="Legacy\PreviewExtentModes.cs" />
+    <Compile Include="Legacy\IProject.cs" />
+    <Compile Include="Legacy\ReferenceTypes.cs" />
+    <Compile Include="Legacy\IReports.cs" />
+    <Compile Include="Legacy\ISelectedShape.cs" />
+    <Compile Include="Legacy\ISelectInfo.cs" />
+    <Compile Include="Legacy\SelectModes.cs" />
+    <Compile Include="Legacy\IStatusBar.cs" />
+    <Compile Include="Legacy\IStatusBarItem.cs" />
+    <Compile Include="Legacy\IToolbar.cs" />
+    <Compile Include="Legacy\IToolbarButton.cs" />
+    <Compile Include="Legacy\IUIPanel.cs" />
+    <Compile Include="Legacy\UnitsOfMeasure.cs" />
+    <Compile Include="Legacy\IUserInteraction.cs" />
+    <Compile Include="Legacy\IViewOld.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Scrap\DataFrame.cs" />
+    <Compile Include="Data\Vectors\Feature.cs">
+    </Compile>
+    <Compile Include="Data\Vectors\FeatureSet.cs">
+    </Compile>
+    <Compile Include="Data\Field.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Scrap\IDataFrame.cs" />
+    <Compile Include="Scrap\ShapefileFeatureSet.cs" />
+    <Compile Include="Forms\PropertyDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drawing\BackBuffer.cs" />
+    <Compile Include="Drawing\Vectors\FeatureSymbolizerOld.cs">
+    </Compile>
+    <Compile Include="Drawing\Vectors\IFeatureSymbolizerOld.cs" />
+    <Compile Include="Drawing\IFrame.cs" />
+    <Compile Include="Drawing\ILayerEventList.cs" />
+    <Compile Include="Drawing\Vectors\Lines\LineSymbolizer.cs">
+    </Compile>
+    <Compile Include="Scrap\IDataSource.cs" />
+    <Compile Include="Scrap\DataCatalog.cs" />
+    <Compile Include="Internal\IO\BEBinaryWriter.cs" />
+    <Compile Include="Internal\IO\GML2\GMLWriter.cs" />
+    <Compile Include="Scrap\ParseException.cs" />
+    <Compile Include="Drawing\LayerFrame.cs">
+    </Compile>
+    <Compile Include="Drawing\LayerCollection.cs" />
+    <Compile Include="Drawing\Vectors\Lines\LineLayer.cs">
+    </Compile>
+    <Compile Include="Drawing\Vectors\Polygons\PolygonSymbolizerOld.cs">
+    </Compile>
+    <Compile Include="Main\EventArguments\DataProviders.cs" />
+    <Compile Include="Forms\Editors\PropertyGridEditor.cs" />
+    <Compile Include="Forms\Editors\RasterColorSchemeEditor.cs" />
+    <Compile Include="Forms\Editors\OpenFileEditor.cs" />
+    <Compile Include="Geometries\Angle.cs" />
+    <Compile Include="Geometries\CoordinateListSequence.cs" />
+    <Compile Include="Geometries\CoordinateListSequenceFactory.cs" />
+    <Compile Include="Main\EventArguments\MessageCancel.cs" />
+    <Compile Include="Main\EventArguments\MouseCoordinateF.cs" />
+    <Compile Include="Drawing\DrawCompletedArgs.cs" />
+    <Compile Include="Drawing\DrawVerifyArgs.cs" />
+    <Compile Include="Main\EventArguments\EntityArgs.cs" />
+    <Compile Include="Main\GenericCalculator\ByteCalculator.cs" />
+    <Compile Include="Main\GenericCalculator\DoubleCalculator.cs" />
+    <Compile Include="Main\GenericCalculator\LongCalculator.cs" />
+    <Compile Include="Main\GenericCalculator\ShortCalculator.cs" />
+    <Compile Include="Main\GenericCalculator\SingleCalculator.cs" />
+    <Compile Include="Main\Generic\QuadTree\QuadNode.cs" />
+    <Compile Include="Main\Generic\QuadTree\QuadNodeCollection.cs" />
+    <Compile Include="Main\Generic\QuadTree\QuadNodeEnumerator.cs" />
+    <Compile Include="Main\Generic\QuadTree\QuadTree.cs" />
+    <Compile Include="Main\GenericCalculator\ICalculator.cs" />
+    <Compile Include="Main\IProgHandler.cs" />
+    <Compile Include="Main\ITreeView.cs" />
+    <Compile Include="Main\OrderedDictionaryEnumerator.cs" />
+    <Compile Include="Main\IOrderedDictionary.cs" />
+    <Compile Include="Main\OrderedDictionary.cs" />
+    <Compile Include="Main\ProgressMeter.cs" />
+    <Compile Include="Main\GenericCalculator\IntCalculator.cs" />
+    <Compile Include="MessageStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MessageStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Plugins\IDataProvider.cs" />
+    <Compile Include="Images.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Images.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Analysis\DataManagement\BigEndianBinaryReader.cs" />
+    <Compile Include="Analysis\DataManagement\BigEndianBinaryWriter.cs" />
+    <Compile Include="Analysis\DataManagement\Shapefile\dBase\ColumnStructure.cs" />
+    <Compile Include="Analysis\DataManagement\Shapefile\dBase\Commands.cs" />
+    <Compile Include="Analysis\DataManagement\Shapefile\dBase\DbaseFileEnumerator.cs" />
+    <Compile Include="Analysis\DataManagement\Shapefile\dBase\dBaseIndex.cs" />
+    <Compile Include="Analysis\DataManagement\Shapefile\dBase\FieldDescriptor.cs" />
+    <Compile Include="Analysis\DataManagement\Shapefile\dBase\dBaseHeader.cs" />
+    <Compile Include="Analysis\DataManagement\Shapefile\dBase\dBaseReader.cs" />
+    <Compile Include="Analysis\DataManagement\Shapefile\dBase\dBaseWriter.cs" />
+    <Compile Include="Analysis\DataManagement\Shapefile\dBase\RowStructure.cs" />
+    <Compile Include="Analysis\DataManagement\Shapefile\Shape\MultiLineHandler.cs" />
+    <Compile Include="Analysis\DataManagement\Shapefile\Shape\MultiPointHandler.cs" />
+    <Compile Include="Analysis\DataManagement\Shapefile\Shape\PointHandler.cs" />
+    <Compile Include="Analysis\DataManagement\Shapefile\Shape\PolygonHandler.cs" />
+    <Compile Include="Analysis\DataManagement\Shapefile\Shape\ShapeHandler.cs" />
+    <Compile Include="Analysis\DataManagement\Shapefile\ShapefileReader.cs" />
+    <Compile Include="Analysis\DataManagement\Shapefile\ShapefileWriter.cs" />
+    <Compile Include="Analysis\DataManagement\Shapefile\ShapefileException.cs" />
+    <Compile Include="Analysis\DataManagement\Shapefile\ShapefileHeader.cs" />
+    <Compile Include="Analysis\DataManagement\Shapefile\Shape\ShapeReader.cs" />
+    <Compile Include="Analysis\DataManagement\Shapefile\Shape\ShapeWriter.cs" />
+    <Compile Include="Internal\IO\Shapefile\TokenType.cs" />
+    <Compile Include="Internal\IO\Shapefile\WktStreamTokenizer.cs" />
+    <Compile Include="Internal\IO\WKBWriter.cs" />
+    <Compile Include="Internal\IO\WKTWriter.cs" />
+    <Compile Include="Scrap\ShapeFileDataSource.cs" />
+    <Compile Include="Drawing\Vectors\Points\PointLayer.cs">
+    </Compile>
+    <Compile Include="Geometries\CoordinateArrays.cs" />
+    <Compile Include="Geometries\CoordinateArraySequence.cs" />
+    <Compile Include="Geometries\CoordinateArraySequenceFactory.cs" />
+    <Compile Include="Geometries\CoordinateList.cs" />
+    <Compile Include="Geometries\Dimension.cs" />
+    <Compile Include="Geometries\Envelope.cs" />
+    <Compile Include="Geometries\Geometry.cs" />
+    <Compile Include="Geometries\GeometryCollection.cs" />
+    <Compile Include="Geometries\GeometryCollectionEnumerator.cs" />
+    <Compile Include="Geometries\GeometryFactory.cs" />
+    <Compile Include="Geometries\IntersectionMatrix.cs" />
+    <Compile Include="Geometries\LinearRing.cs" />
+    <Compile Include="Geometries\LineSegment.cs" />
+    <Compile Include="Geometries\LineString.cs" />
+    <Compile Include="Geometries\Location.cs" />
+    <Compile Include="Geometries\MultiLineString.cs" />
+    <Compile Include="Geometries\MultiPoint.cs" />
+    <Compile Include="Geometries\MultiPolygon.cs" />
+    <Compile Include="Geometries\Point.cs" />
+    <Compile Include="Geometries\Polygon.cs" />
+    <Compile Include="Geometries\PrecisionModel.cs" />
+    <Compile Include="Geometries\TopologyException.cs" />
+    <Compile Include="Geometries\Triangle.cs" />
+    <Compile Include="Geometries\Utilities\GeometryEditor.cs" />
+    <Compile Include="Geometries\Utilities\LinearComponentExtracter.cs" />
+    <Compile Include="Geometries\Utilities\PointExtracter.cs" />
+    <Compile Include="Geometries\Utilities\PolygonExtracter.cs" />
+    <Compile Include="Geometries\Utilities\ShortCircuitedGeometryVisitor.cs" />
+    <Compile Include="Main\EventDictionary.cs" />
+    <Compile Include="Main\EventList.cs" />
+    <Compile Include="Main\IComponent.cs" />
+    <Compile Include="Main\IContainerControl.cs" />
+    <Compile Include="Main\IControl.cs" />
+    <Compile Include="Drawing\ILabel.cs" />
+    <Compile Include="Drawing\ILabelContainer.cs" />
+    <Compile Include="Main\IMarshalByRefObject.cs" />
+    <Compile Include="Main\IObject.cs" />
+    <Compile Include="Legacy\IPlugin.cs" />
+    <Compile Include="Main\IScrollableControl.cs" />
+    <Compile Include="Main\IUserControl.cs" />
+    <Compile Include="Drawing\IView.cs" />
+    <Compile Include="Data\Enums.cs" />
+    <Compile Include="Data\Vectors\IFeature.cs" />
+    <Compile Include="Scrap\IFeatureDataSource.cs" />
+    <Compile Include="Data\Vectors\IFeatureSet.cs" />
+    <Compile Include="Drawing\Vectors\Lines\ILineSymbolizer.cs" />
+    <Compile Include="Drawing\Vectors\Polygons\IPolygonSymbolizerOld.cs" />
+    <Compile Include="Drawing\ISymbolRange.cs" />
+    <Compile Include="Drawing\Enums.cs" />
+    <Compile Include="Geometries\Enums.cs" />
+    <Compile Include="Geometries\ICoordinate.cs" />
+    <Compile Include="Geometries\ICoordinateFilter.cs" />
+    <Compile Include="Geometries\ICoordinateSequence.cs" />
+    <Compile Include="Geometries\ICoordinateSequenceFactory.cs" />
+    <Compile Include="Geometries\IEnvelope.cs" />
+    <Compile Include="Geometries\IGeometry.cs" />
+    <Compile Include="Geometries\IBasicGeometry.cs" />
+    <Compile Include="Geometries\IGeometryCollection.cs" />
+    <Compile Include="Geometries\IGeometryComponentFilter.cs" />
+    <Compile Include="Geometries\IGeometryFactory.cs" />
+    <Compile Include="Geometries\IGeometryFilter.cs" />
+    <Compile Include="Geometries\IIntersectionMatrix.cs" />
+    <Compile Include="Geometries\ILinearRing.cs" />
+    <Compile Include="Geometries\ILineSegment.cs" />
+    <Compile Include="Geometries\ILineSegmentBase.cs" />
+    <Compile Include="Geometries\ILineString.cs" />
+    <Compile Include="Geometries\IBasicLineString.cs" />
+    <Compile Include="Geometries\IMultiLineString.cs" />
+    <Compile Include="Geometries\IMultiPoint.cs" />
+    <Compile Include="Geometries\IMultiPolygon.cs" />
+    <Compile Include="Geometries\IOverlay.cs" />
+    <Compile Include="Geometries\IPoint.cs" />
+    <Compile Include="Geometries\IBasicPoint.cs" />
+    <Compile Include="Geometries\IPolygon.cs" />
+    <Compile Include="Geometries\IBasicPolygon.cs" />
+    <Compile Include="Geometries\IRelate.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Main\EventArguments\Collective.cs" />
+    <Compile Include="Main\EventArguments\CollectiveCancel.cs" />
+    <Compile Include="Main\EventArguments\CollectiveIndex.cs" />
+    <Compile Include="Main\EventArguments\CollectiveIndexCancel.cs" />
+    <Compile Include="Main\EventArguments\CollectiveIndexCompare.cs" />
+    <Compile Include="Main\EventArguments\CollectiveIndexCompareCancel.cs" />
+    <Compile Include="Main\EventArguments\Compare.cs" />
+    <Compile Include="Main\EventArguments\CompareCancel.cs" />
+    <Compile Include="Main\EventArguments\Comparison.cs" />
+    <Compile Include="Main\EventArguments\ComparisonCancel.cs" />
+    <Compile Include="Main\EventArguments\Individual.cs" />
+    <Compile Include="Main\EventArguments\IndividualCancel.cs" />
+    <Compile Include="Main\EventArguments\IndividualDictionary.cs" />
+    <Compile Include="Main\EventArguments\IndividualDictionaryCancel.cs" />
+    <Compile Include="Main\EventArguments\IndividualIndex.cs" />
+    <Compile Include="Main\EventArguments\IndividualIndexCancel.cs" />
+    <Compile Include="Main\IEventDictionary.cs" />
+    <Compile Include="Main\IEventList.cs" />
+    <Compile Include="Analysis\DataManagement\Shapefile\Shapefile.cs" />
+    <Compile Include="Analysis\Logging\FileLogger.cs" />
+    <Compile Include="Plugins\ILogger.cs" />
+    <Compile Include="Analysis\Topology\Algorithm\CentroidArea.cs" />
+    <Compile Include="Analysis\Topology\Algorithm\CentroidLine.cs" />
+    <Compile Include="Analysis\Topology\Algorithm\CentroidPoint.cs" />
+    <Compile Include="Analysis\Topology\Algorithm\CGAlgorithms.cs" />
+    <Compile Include="Analysis\Topology\Algorithm\ConvexHull.cs" />
+    <Compile Include="Analysis\Topology\Algorithm\HCoordinate.cs" />
+    <Compile Include="Analysis\Topology\Algorithm\InteriorPointArea.cs" />
+    <Compile Include="Analysis\Topology\Algorithm\InteriorPointLine.cs" />
+    <Compile Include="Analysis\Topology\Algorithm\InteriorPointPoint.cs" />
+    <Compile Include="Analysis\Topology\Algorithm\IntersectionTypes.cs" />
+    <Compile Include="Analysis\Topology\Algorithm\IPointInRing.cs" />
+    <Compile Include="Analysis\Topology\Algorithm\LineIntersector.cs" />
+    <Compile Include="Analysis\Topology\Algorithm\MCPointInRing.cs" />
+    <Compile Include="Analysis\Topology\Algorithm\MinimumDiameter.cs" />
+    <Compile Include="Analysis\Topology\Algorithm\NonRobustCGAlgorithms.cs" />
+    <Compile Include="Analysis\Topology\Algorithm\NonRobustLineIntersector.cs" />
+    <Compile Include="Analysis\Topology\Algorithm\NotRepresentableException.cs" />
+    <Compile Include="Analysis\Topology\Algorithm\PointLocator.cs" />
+    <Compile Include="Analysis\Topology\Algorithm\RobustDeterminant.cs" />
+    <Compile Include="Analysis\Topology\Algorithm\RobustLineIntersector.cs" />
+    <Compile Include="Analysis\Topology\Algorithm\SimplePointInAreaLocator.cs" />
+    <Compile Include="Analysis\Topology\Algorithm\SimplePointInRing.cs" />
+    <Compile Include="Analysis\Topology\Algorithm\SIRtreePointInRing.cs" />
+    <Compile Include="Analysis\Topology\Features\AttributesTable.cs" />
+    <Compile Include="Analysis\Topology\Features\NTSFeature.cs" />
+    <Compile Include="Analysis\Topology\Features\IAttributesTable.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\Depth.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\DirectedEdge.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\DirectedEdgeStar.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\Edge.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\EdgeEnd.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\EdgeEndStar.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\EdgeIntersection.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\EdgeIntersectionList.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\EdgeList.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\EdgeNodingValidator.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\EdgeRing.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\GeometryGraph.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\GraphComponent.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\Index\EdgeSetIntersector.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\Index\MonotoneChain.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\Index\MonotoneChainEdge.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\Index\MonotoneChainIndexer.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\Index\SegmentIntersector.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\Index\SimpleEdgeSetIntersector.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\Index\SimpleMCSweepLineIntersector.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\Index\SimpleSweepLineIntersector.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\Index\SweepLineEvent.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\Index\SweepLineSegment.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\Label.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\Node.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\NodeFactory.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\NodeMap.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\PlanarGraph.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\Position.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\QuadrantOp.cs" />
+    <Compile Include="Analysis\Topology\GeometryGraph\TopologyLocation.cs" />
+    <Compile Include="Analysis\Topology\Index\ArrayListVisitor.cs" />
+    <Compile Include="Analysis\Topology\Index\Bintree\Bintree.cs" />
+    <Compile Include="Analysis\Topology\Index\Bintree\Interval.cs" />
+    <Compile Include="Analysis\Topology\Index\Bintree\Key.cs" />
+    <Compile Include="Analysis\Topology\Index\Bintree\Node.cs" />
+    <Compile Include="Analysis\Topology\Index\Bintree\NodeBase.cs" />
+    <Compile Include="Analysis\Topology\Index\Bintree\Root.cs" />
+    <Compile Include="Analysis\Topology\Index\Chain\MonotoneChain.cs" />
+    <Compile Include="Analysis\Topology\Index\Chain\MonotoneChainBuilder.cs" />
+    <Compile Include="Analysis\Topology\Index\Chain\MonotoneChainOverlapAction.cs" />
+    <Compile Include="Analysis\Topology\Index\Chain\MonotoneChainSelectAction.cs" />
+    <Compile Include="Analysis\Topology\Index\IIndexVisitor.cs" />
+    <Compile Include="Analysis\Topology\Index\IItemVisitor.cs" />
+    <Compile Include="Analysis\Topology\Index\ISpatialIndex.cs" />
+    <Compile Include="Analysis\Topology\Index\KDTree\FarthestNeighborList.cs" />
+    <Compile Include="Analysis\Topology\Index\KDTree\HPoint.cs" />
+    <Compile Include="Analysis\Topology\Index\KDTree\HRect.cs" />
+    <Compile Include="Analysis\Topology\Index\KDTree\KDNode.cs" />
+    <Compile Include="Analysis\Topology\Index\KDTree\KDTree.cs" />
+    <Compile Include="Analysis\Topology\Index\KDTree\KeyDuplicateException.cs" />
+    <Compile Include="Analysis\Topology\Index\KDTree\KeyMissingException.cs" />
+    <Compile Include="Analysis\Topology\Index\KDTree\KeySizeException.cs" />
+    <Compile Include="Analysis\Topology\Index\KDTree\NearestNeighborList.cs" />
+    <Compile Include="Main\Exceptions\Argument\NegativeArgumentException.cs" />
+    <Compile Include="Analysis\Topology\Index\KDTree\NeighborsOutOfRangeException.cs" />
+    <Compile Include="Analysis\Topology\Index\KDTree\PriorityQueue.cs" />
+    <Compile Include="Analysis\Topology\Index\QuadTree\DoubleBits.cs" />
+    <Compile Include="Analysis\Topology\Index\QuadTree\IntervalSize.cs" />
+    <Compile Include="Analysis\Topology\Index\QuadTree\Key.cs" />
+    <Compile Include="Analysis\Topology\Index\QuadTree\Node.cs" />
+    <Compile Include="Analysis\Topology\Index\QuadTree\NodeBase.cs" />
+    <Compile Include="Analysis\Topology\Index\QuadTree\Quadtree.cs" />
+    <Compile Include="Analysis\Topology\Index\QuadTree\Root.cs" />
+    <Compile Include="Analysis\Topology\Index\Strtree\AbstractNode.cs" />
+    <Compile Include="Analysis\Topology\Index\Strtree\AbstractSTRtree.cs" />
+    <Compile Include="Analysis\Topology\Index\Strtree\IBoundable.cs" />
+    <Compile Include="Analysis\Topology\Index\Strtree\Interval.cs" />
+    <Compile Include="Analysis\Topology\Index\Strtree\ItemBoundable.cs" />
+    <Compile Include="Analysis\Topology\Index\Strtree\SIRtree.cs" />
+    <Compile Include="Analysis\Topology\Index\Strtree\STRtree.cs" />
+    <Compile Include="Analysis\Topology\Index\Sweepline\ISweepLineOverlapAction.cs" />
+    <Compile Include="Analysis\Topology\Index\Sweepline\SweepLineEvent.cs" />
+    <Compile Include="Analysis\Topology\Index\Sweepline\SweepLineIndex.cs" />
+    <Compile Include="Analysis\Topology\Index\Sweepline\SweepLineInterval.cs" />
+    <Compile Include="Analysis\Topology\Noding\INoder.cs" />
+    <Compile Include="Analysis\Topology\Noding\IntersectionAdder.cs" />
+    <Compile Include="Analysis\Topology\Noding\IntersectionFinderAdder.cs" />
+    <Compile Include="Analysis\Topology\Noding\ISegmentIntersector.cs" />
+    <Compile Include="Analysis\Topology\Noding\IteratedNoder.cs" />
+    <Compile Include="Analysis\Topology\Noding\MCIndexNoder.cs" />
+    <Compile Include="Analysis\Topology\Noding\NodingValidator.cs" />
+    <Compile Include="Analysis\Topology\Noding\Octant.cs" />
+    <Compile Include="Analysis\Topology\Noding\OrientedCoordinateArray.cs" />
+    <Compile Include="Analysis\Topology\Noding\ScaledNoder.cs" />
+    <Compile Include="Analysis\Topology\Noding\SegmentNode.cs" />
+    <Compile Include="Analysis\Topology\Noding\SegmentNodeList.cs" />
+    <Compile Include="Analysis\Topology\Noding\SegmentPointComparator.cs" />
+    <Compile Include="Analysis\Topology\Noding\SegmentString.cs" />
+    <Compile Include="Analysis\Topology\Noding\SegmentStringDissolver.cs" />
+    <Compile Include="Analysis\Topology\Noding\SimpleNoder.cs" />
+    <Compile Include="Analysis\Topology\Noding\SinglePassNoder.cs" />
+    <Compile Include="Analysis\Topology\Noding\Snapround\HotPixel.cs" />
+    <Compile Include="Analysis\Topology\Noding\Snapround\MCIndexPointSnapper.cs" />
+    <Compile Include="Analysis\Topology\Noding\Snapround\MCIndexSnapRounder.cs" />
+    <Compile Include="Analysis\Topology\Noding\Snapround\SimpleSnapRounder.cs" />
+    <Compile Include="Analysis\Topology\Operation\Buffer\BufferBuilder.cs" />
+    <Compile Include="Analysis\Topology\Operation\Buffer\BufferOp.cs" />
+    <Compile Include="Analysis\Topology\Operation\Buffer\BufferSubgraph.cs" />
+    <Compile Include="Analysis\Topology\Operation\Buffer\OffsetCurveBuilder.cs" />
+    <Compile Include="Analysis\Topology\Operation\Buffer\OffsetCurveSetBuilder.cs" />
+    <Compile Include="Analysis\Topology\Operation\Buffer\RightmostEdgeFinder.cs" />
+    <Compile Include="Analysis\Topology\Operation\Buffer\SubgraphDepthLocater.cs" />
+    <Compile Include="Analysis\Topology\Operation\Distance\ConnectedElementLocationFilter.cs" />
+    <Compile Include="Analysis\Topology\Operation\Distance\ConnectedElementPointFilter.cs" />
+    <Compile Include="Analysis\Topology\Operation\Distance\DistanceOp.cs" />
+    <Compile Include="Analysis\Topology\Operation\Distance\GeometryLocation.cs" />
+    <Compile Include="Analysis\Topology\Operation\GeometryGraphOperation.cs" />
+    <Compile Include="Analysis\Topology\Operation\IsSimpleOp.cs" />
+    <Compile Include="Analysis\Topology\Operation\Linemerge\EdgeString.cs" />
+    <Compile Include="Analysis\Topology\Operation\Linemerge\LineMergeDirectedEdge.cs" />
+    <Compile Include="Analysis\Topology\Operation\Linemerge\LineMergeEdge.cs" />
+    <Compile Include="Analysis\Topology\Operation\Linemerge\LineMergeGraph.cs" />
+    <Compile Include="Analysis\Topology\Operation\Linemerge\LineMerger.cs" />
+    <Compile Include="Analysis\Topology\Operation\Overlay\EdgeSetNoder.cs" />
+    <Compile Include="Analysis\Topology\Operation\Overlay\LineBuilder.cs" />
+    <Compile Include="Analysis\Topology\Operation\Overlay\MaximalEdgeRing.cs" />
+    <Compile Include="Analysis\Topology\Operation\Overlay\MinimalEdgeRing.cs" />
+    <Compile Include="Analysis\Topology\Operation\Overlay\OverlayNodeFactory.cs" />
+    <Compile Include="Analysis\Topology\Operation\Overlay\OverlayOp.cs" />
+    <Compile Include="Analysis\Topology\Operation\Overlay\PointBuilder.cs" />
+    <Compile Include="Analysis\Topology\Operation\Overlay\PolygonBuilder.cs" />
+    <Compile Include="Analysis\Topology\Operation\Polygonize\EdgeRing.cs" />
+    <Compile Include="Analysis\Topology\Operation\Polygonize\LineStringAdder.cs" />
+    <Compile Include="Analysis\Topology\Operation\Polygonize\PolygonizeDirectedEdge.cs" />
+    <Compile Include="Analysis\Topology\Operation\Polygonize\PolygonizeEdge.cs" />
+    <Compile Include="Analysis\Topology\Operation\Polygonize\PolygonizeGraph.cs" />
+    <Compile Include="Analysis\Topology\Operation\Polygonize\Polygonizer.cs" />
+    <Compile Include="Analysis\Topology\Operation\Predicate\RectangleContains.cs" />
+    <Compile Include="Analysis\Topology\Operation\Predicate\RectangleIntersects.cs" />
+    <Compile Include="Analysis\Topology\Operation\Predicate\SegmentIntersectionTester.cs" />
+    <Compile Include="Analysis\Topology\Operation\Relate\EdgeEndBuilder.cs" />
+    <Compile Include="Analysis\Topology\Operation\Relate\EdgeEndBundle.cs" />
+    <Compile Include="Analysis\Topology\Operation\Relate\EdgeEndBundleStar.cs" />
+    <Compile Include="Analysis\Topology\Operation\Relate\RelateComputer.cs" />
+    <Compile Include="Analysis\Topology\Operation\Relate\RelateNode.cs" />
+    <Compile Include="Analysis\Topology\Operation\Relate\RelateNodeFactory.cs" />
+    <Compile Include="Analysis\Topology\Operation\Relate\RelateNodeGraph.cs" />
+    <Compile Include="Analysis\Topology\Operation\Relate\RelateOp.cs" />
+    <Compile Include="Analysis\Topology\Operation\Valid\ConnectedInteriorTester.cs" />
+    <Compile Include="Analysis\Topology\Operation\Valid\ConsistentAreaTester.cs" />
+    <Compile Include="Analysis\Topology\Operation\Valid\IsValidOp.cs" />
+    <Compile Include="Analysis\Topology\Operation\Valid\QuadtreeNestedRingTester.cs" />
+    <Compile Include="Analysis\Topology\Operation\Valid\RepeatedPointTester.cs" />
+    <Compile Include="Analysis\Topology\Operation\Valid\SimpleNestedRingTester.cs" />
+    <Compile Include="Analysis\Topology\Operation\Valid\SweeplineNestedRingTester.cs" />
+    <Compile Include="Analysis\Topology\Operation\Valid\TopologyValidationError.cs" />
+    <Compile Include="Analysis\Topology\Planargraph\Algorithm\ConnectedSubgraphFinder.cs" />
+    <Compile Include="Analysis\Topology\Planargraph\DirectedEdge.cs" />
+    <Compile Include="Analysis\Topology\Planargraph\DirectedEdgeStar.cs" />
+    <Compile Include="Analysis\Topology\Planargraph\Edge.cs" />
+    <Compile Include="Analysis\Topology\Planargraph\GraphComponent.cs" />
+    <Compile Include="Analysis\Topology\Planargraph\Node.cs" />
+    <Compile Include="Analysis\Topology\Planargraph\NodeMap.cs" />
+    <Compile Include="Analysis\Topology\Planargraph\PlanarGraph.cs" />
+    <Compile Include="Analysis\Topology\Planargraph\Subgraph.cs" />
+    <Compile Include="Analysis\Topology\Precision\CommonBits.cs" />
+    <Compile Include="Analysis\Topology\Precision\CommonBitsOp.cs" />
+    <Compile Include="Analysis\Topology\Precision\CommonBitsRemover.cs" />
+    <Compile Include="Analysis\Topology\Precision\EnhancedPrecisionOp.cs" />
+    <Compile Include="Analysis\Topology\Precision\SimpleGeometryPrecisionReducer.cs" />
+    <Compile Include="Analysis\Topology\Utilities\Assert.cs" />
+    <Compile Include="Analysis\Topology\Utilities\AssertionFailedException.cs" />
+    <Compile Include="Analysis\Topology\Utilities\CollectionUtil.cs" />
+    <Compile Include="Analysis\Topology\Utilities\GeoToolsStreamTokenizer.cs" />
+    <Compile Include="Analysis\Topology\Utilities\Global.cs" />
+    <Compile Include="Analysis\Topology\Utilities\HexConverter.cs" />
+    <Compile Include="Analysis\Topology\Utilities\Iesi.Collections\DictionarySet.cs" />
+    <Compile Include="Analysis\Topology\Utilities\Iesi.Collections\Generic\CollectionWrapper.cs" />
+    <Compile Include="Analysis\Topology\Utilities\Iesi.Collections\Generic\DictionarySet.cs" />
+    <Compile Include="Analysis\Topology\Utilities\Iesi.Collections\Generic\EnumerableWrapper.cs" />
+    <Compile Include="Analysis\Topology\Utilities\Iesi.Collections\Generic\EnumeratorWrapper.cs" />
+    <Compile Include="Analysis\Topology\Utilities\Iesi.Collections\Generic\HashedSet.cs" />
+    <Compile Include="Analysis\Topology\Utilities\Iesi.Collections\Generic\HybridSet.cs" />
+    <Compile Include="Analysis\Topology\Utilities\Iesi.Collections\Generic\ISet.cs" />
+    <Compile Include="Analysis\Topology\Utilities\Iesi.Collections\Generic\Set.cs" />
+    <Compile Include="Analysis\Topology\Utilities\Iesi.Collections\Generic\SetWrapper.cs" />
+    <Compile Include="Analysis\Topology\Utilities\Iesi.Collections\Generic\SortedSet.cs" />
+    <Compile Include="Analysis\Topology\Utilities\Iesi.Collections\HashedSet.cs" />
+    <Compile Include="Analysis\Topology\Utilities\Iesi.Collections\HybridSet.cs" />
+    <Compile Include="Analysis\Topology\Utilities\Iesi.Collections\ISet.cs" />
+    <Compile Include="Analysis\Topology\Utilities\Iesi.Collections\ListSet.cs" />
+    <Compile Include="Analysis\Topology\Utilities\Iesi.Collections\Set.cs" />
+    <Compile Include="Analysis\Topology\Utilities\Iesi.Collections\SortedSet.cs" />
+    <Compile Include="Analysis\Topology\Utilities\UniqueCoordinateArrayFilter.cs" />
+    <Compile Include="Data\Vectors\ShapeRange.cs" />
+    <Compile Include="Serialization\SerializationFormatter.cs" />
+    <Compile Include="Serialization\SerializationMap.cs" />
+    <Compile Include="Serialization\SerializationMapEntry.cs" />
+    <Compile Include="Serialization\SerializeAttribute.cs" />
+    <Compile Include="Tools\DialogComponents\BooleanElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DialogComponents\DateTimeElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DialogComponents\DialogElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DialogComponents\DialogSpacerElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DialogComponents\DoubleElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DialogComponents\Enums.cs" />
+    <Compile Include="Tools\DialogComponents\FeatureSetElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DialogComponents\FeatureSetElementOut.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DialogComponents\IndexElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DialogComponents\IntElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DialogComponents\LineElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DialogComponents\LineElementOut.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DialogComponents\ListElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DialogComponents\MyCustomElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DialogComponents\OpenFileElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DialogComponents\PointElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DialogComponents\PointElementOut.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DialogComponents\PolygonElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DialogComponents\PolygonElementOut.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DialogComponents\ProjectionElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DialogComponents\RasterElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DialogComponents\RasterElementOut.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DialogComponents\SaveFileElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DialogComponents\StringElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\DialogComponents\ToolDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\Modeler\ArrowElement.cs" />
+    <Compile Include="Tools\Modeler\BlankElement.cs" />
+    <Compile Include="Tools\Modeler\DataElement.cs" />
+    <Compile Include="Tools\Modeler\frmModeler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\Modeler\ModelElement.cs" />
+    <Compile Include="Tools\Modeler\ModelEnums.cs" />
+    <Compile Include="Tools\Modeler\Modeler.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\Modeler\ModelerMenuStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tools\Modeler\ModelerToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tools\Modeler\ToolElement.cs" />
+    <Compile Include="Tools\Param\BooleanParam.cs" />
+    <Compile Include="Tools\Param\DoubleParam.cs" />
+    <Compile Include="Tools\Param\Enums.cs" />
+    <Compile Include="Tools\Param\FeatureSetParam.cs" />
+    <Compile Include="Tools\Param\IndexParam.cs" />
+    <Compile Include="Tools\Param\IntParam.cs" />
+    <Compile Include="Tools\Param\LineFeatureSetParam.cs" />
+    <Compile Include="Tools\Param\ListParam.cs" />
+    <Compile Include="Tools\Param\OpenFileParam.cs" />
+    <Compile Include="Tools\Param\Parameter.cs" />
+    <Compile Include="Tools\Param\PointFeatureSetParam.cs" />
+    <Compile Include="Tools\Param\PolygonFeatureSetParam.cs" />
+    <Compile Include="Tools\Param\ProjectionParam.cs" />
+    <Compile Include="Tools\Param\RasterParam.cs" />
+    <Compile Include="Tools\Param\SaveFilePram.cs" />
+    <Compile Include="Tools\Param\StringParam.cs" />
+    <Compile Include="Tools\Toolbox\ToolManagerToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tools\Toolbox\ToolManagerToolInfo.cs" />
+    <Compile Include="Tools\Toolbox\DataSetArray.cs" />
+    <Compile Include="Tools\Toolbox\DefaultToolProvider.cs" />
+    <Compile Include="Tools\Toolbox\DefaultToolProviderToolInfo.cs" />
+    <Compile Include="Tools\Toolbox\ICancelProgressHandler.cs" />
+    <Compile Include="Tools\Toolbox\ITool.cs" />
+    <Compile Include="Tools\Toolbox\IToolProvider.cs" />
+    <Compile Include="Tools\Toolbox\ToolInfo.cs" />
+    <Compile Include="Tools\Toolbox\ToolManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tools\Toolbox\ToolProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XML\ProjectFile.cs" />
+    <Compile Include="XML\ProjectVersions.cs" />
+    <Compile Include="Serialization\ReflectionHelper.cs" />
+    <Compile Include="XML\XmlConstants.cs" />
+    <Compile Include="XML\XmlDeserializer.cs" />
+    <Compile Include="XML\XmlHelper.cs" />
+    <Compile Include="XML\XmlSerializer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Components\Angles\AngleControl.resx">
+      <DependentUpon>AngleControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CategoryControls\FeatureCategoryControl.resx">
+      <DependentUpon>FeatureCategoryControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CollectionControls\CollectionControl.resx">
+      <DependentUpon>CollectionControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CollectionControls\PatternCollectionControl.resx">
+      <DependentUpon>PatternCollectionControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CollectionControls\SymbolCollectionControl.resx">
+      <DependentUpon>SymbolCollectionControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CollectionControls\DecorationCollectionControl.resx">
+      <DependentUpon>DecorationCollectionControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CollectionControls\StrokeCollectionControl.resx">
+      <DependentUpon>StrokeCollectionControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ColorControls\ColorBox.resx">
+      <DependentUpon>ColorBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ColorControls\ColorDropDown.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ColorDropDown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\DataDialogs\DialogImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DialogImages.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\DataDialogs\DirectoryView.resx">
+      <DependentUpon>DirectoryView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\DataDialogs\OpenFileElement.resx">
+      <DependentUpon>OpenFileElement.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\DoubleBox.resx">
+      <DependentUpon>DoubleBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\DynamicVisibilityControl.resx">
+      <DependentUpon>DynamicVisibilityControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\FontBox.resx">
+      <DependentUpon>FontBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\FontFamilyControl.resx">
+      <DependentUpon>FontFamilyControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\GradientControls\GradientControl.resx">
+      <DependentUpon>GradientControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\LineJoinControl.resx">
+      <DependentUpon>LineJoinControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\OutlineControl.resx">
+      <DependentUpon>OutlineControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ScrollingControl.resx">
+      <DependentUpon>ScrollingControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\SymbolSizeChooser\Size2DDialog.resx">
+      <DependentUpon>Size2DDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\SymbolSizeChooser\SizeControl.resx">
+      <DependentUpon>SizeControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\SQLQueryControl.resx">
+      <DependentUpon>SQLQueryControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ToolStrips\mwToolStrip.resx">
+      <DependentUpon>mwToolStrip.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddToMapDialog.resx">
+      <DependentUpon>AddToMapDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CollectionPropertyGrid.resx">
+      <DependentUpon>CollectionPropertyGrid.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Symbology\ColorPicker.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddCustomSymbolDialog.resx">
+      <DependentUpon>AddCustomSymbolDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Symbology\DetailedLineSymbolDialog.resx">
+      <DependentUpon>DetailedLineSymbolDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Symbology\DetailedPointSymbolControl.resx">
+      <DependentUpon>DetailedPointSymbolControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ExportFeature.resx">
+      <DependentUpon>ExportFeature.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FeatureLayerDialog.resx">
+      <DependentUpon>FeatureLayerDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Symbology\LineSymbolDialog.resx">
+      <DependentUpon>LineSymbolDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ListBoxDialog.resx">
+      <DependentUpon>ListBoxDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FeatureIdentifier.resx">
+      <DependentUpon>FeatureIdentifier.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InputBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>InputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LabelSetup.resx">
+      <DependentUpon>LabelSetup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OpenDataDialog.resx">
+      <DependentUpon>OpenDataDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PropertyDialog.resx">
+      <DependentUpon>PropertyDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SelectByAttributes.resx">
+      <DependentUpon>SelectByAttributes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SQLExpressionDialog.resx">
+      <DependentUpon>SQLExpressionDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\ExceptionMessages.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ExceptionMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Map\Components\Map.resx">
+      <DependentUpon>Map.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageStrings.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MessageStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Images.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\DialogComponents\ToolDialog.resx">
+      <DependentUpon>ToolDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\Modeler\frmModeler.resx">
+      <DependentUpon>frmModeler.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\Modeler\ModelElement.resx">
+      <DependentUpon>ModelElement.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\Modeler\Modeler.resx">
+      <DependentUpon>Modeler.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\Toolbox\ToolManager.resx">
+      <DependentUpon>ToolManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\Toolbox\ToolProgress.resx">
+      <DependentUpon>ToolProgress.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Components\Angles\AngleControl.ico" />
+    <EmbeddedResource Include="Components\Angles\AngleControl.zh-CN.resx">
+      <DependentUpon>AngleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\AttributeTable\TableEditorControl.resx">
+      <DependentUpon>TableEditorControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\AttributeTable\TableEditorControl.zh-CN.resx">
+      <DependentUpon>TableEditorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CategoryControls\FeatureCategoryControl.zh-CN.resx">
+      <DependentUpon>FeatureCategoryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CategoryControls\FeatureSizeRangeControl.zh-CN.resx">
+      <DependentUpon>FeatureSizeRangeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CategoryControls\RasterCategoryControl.resx">
+      <DependentUpon>RasterCategoryControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CategoryControls\FeatureSizeRangeControl.resx">
+      <DependentUpon>FeatureSizeRangeControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CategoryControls\RasterCategoryControl.zh-CN.resx">
+      <DependentUpon>RasterCategoryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CategoryControls\TabColorControl.resx">
+      <DependentUpon>TabColorControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CategoryControls\TabColorControl.zh-CN.resx">
+      <DependentUpon>TabColorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CollectionControls\SymbolizerCollectionControl.resx">
+      <DependentUpon>SymbolizerCollectionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ColorControls\ColorBox.zh-CN.resx">
+      <DependentUpon>ColorBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\DialogButtons.resx">
+      <DependentUpon>DialogButtons.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\DialogButtons.zh-CN.resx">
+      <DependentUpon>DialogButtons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\DynamicVisibilityControl.zh-CN.resx">
+      <DependentUpon>DynamicVisibilityControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\FontBox.zh-CN.resx">
+      <DependentUpon>FontBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\GradientControls\ColorLever.ico" />
+    <Content Include="Components\Legend\Images\Checked.ico" />
+    <Content Include="Components\Legend\Images\Points.ico" />
+    <Content Include="Components\Legend\Images\Unchecked.ico" />
+    <Content Include="Components\Legend\Layers.ico" />
+    <EmbeddedResource Include="Components\LabelAlignment\LabelAlignmentControl.resx">
+      <DependentUpon>LabelAlignmentControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\LineJoinControl.zh-CN.resx">
+      <DependentUpon>LineJoinControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\OutlineControl.zh-CN.resx">
+      <DependentUpon>OutlineControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\RampSlider.ico" />
+    <EmbeddedResource Include="Components\mwStatusStrip.ico" />
+    <EmbeddedResource Include="Components\mwProgressBar.ico" />
+    <Content Include="Components\Table.ico" />
+    <None Include="Data\Vectors\VectorDatasets.cd" />
+    <EmbeddedResource Include="Components\SQLQueryControl.zh-CN.resx">
+      <DependentUpon>SQLQueryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Symbology\DetailedLineSymbolControl.zh-CN.resx">
+      <DependentUpon>DetailedLineSymbolControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Symbology\DetailedPointSymbolControl.zh-CN.resx">
+      <DependentUpon>DetailedPointSymbolControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Symbology\DetailedPolygonSymbolControl.resx">
+      <DependentUpon>DetailedPolygonSymbolControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Symbology\DetailedPolygonSymbolControl.zh-CN.resx">
+      <DependentUpon>DetailedPolygonSymbolControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\SymbolSizeChooser\Size2DDialog.zh-CN.resx">
+      <DependentUpon>Size2DDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\SymbolSizeChooser\SizeControl.zh-CN.resx">
+      <DependentUpon>SizeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Img\ImgResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ImgResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddCustomSymbolDialog.zh-CHS.resx">
+      <DependentUpon>AddCustomSymbolDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddToMapDialog.zh-CHS.resx">
+      <DependentUpon>AddToMapDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Attributes\AddNewColum.resx">
+      <DependentUpon>AddNewColum.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Attributes\AddNewColum.zh-CN.resx">
+      <DependentUpon>AddNewColum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Attributes\AttributeCalculator.zh-CN.resx">
+      <DependentUpon>AttributeCalculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Attributes\AttributeDialog.resx">
+      <DependentUpon>AttributeDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Attributes\AttributeDialog.zh-CN.resx">
+      <DependentUpon>AttributeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Attributes\CalculatorUserGuide.resx">
+      <DependentUpon>CalculatorUserGuide.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Attributes\CalculatorUserGuide.zh-CN.resx">
+      <DependentUpon>CalculatorUserGuide.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Attributes\DeleteFields.resx">
+      <DependentUpon>DeleteFields.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Symbology\DetailedLineSymbolControl.resx">
+      <DependentUpon>DetailedLineSymbolControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Attributes\AttributeCalculator.resx">
+      <DependentUpon>AttributeCalculator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Attributes\DeleteFields.zh-CN.resx">
+      <DependentUpon>DeleteFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Attributes\ReNameField.zh-CN.resx">
+      <DependentUpon>ReNameField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Attributes\Replace.zh-CN.resx">
+      <DependentUpon>Replace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Attributes\SelectField.resx">
+      <DependentUpon>SelectField.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Attributes\SelectField.zh-CN.resx">
+      <DependentUpon>SelectField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CollectionPropertyGrid.zh-CN.resx">
+      <DependentUpon>CollectionPropertyGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DynamicVisibilityModeDialog.resx">
+      <DependentUpon>DynamicVisibilityModeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ExportFeature.zh-CN.resx">
+      <DependentUpon>ExportFeature.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FeatureIdentifier.zh-CN.resx">
+      <DependentUpon>FeatureIdentifier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FeatureLayerDialog.zh-CN.resx">
+      <DependentUpon>FeatureLayerDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InputBox.zh-CN.resx">
+      <DependentUpon>InputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LabelSetup.zh-CN.resx">
+      <DependentUpon>LabelSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LayoutForm.zh-CN.resx">
+      <DependentUpon>LayoutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ListBoxDialog.zh-CN.resx">
+      <DependentUpon>ListBoxDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PageSetupForm.zh-CN.resx">
+      <DependentUpon>PageSetupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProgressCancelDialog.resx">
+      <DependentUpon>ProgressCancelDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProgressCancelDialog.zh-CN.resx">
+      <DependentUpon>ProgressCancelDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProjectionCustomDialog.zh-CN.resx">
+      <DependentUpon>ProjectionCustomDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProjectionSelectDialog.zh-CN.resx">
+      <DependentUpon>ProjectionSelectDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PropertyDialog.zh-CN.resx">
+      <DependentUpon>PropertyDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\QueryDialog.zh-CN.resx">
+      <DependentUpon>QueryDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RasterLayerDialog.resx">
+      <DependentUpon>RasterLayerDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RasterLayerDialog.zh-CN.resx">
+      <DependentUpon>RasterLayerDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SelectByAttributes.zh-CN.resx">
+      <DependentUpon>SelectByAttributes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SQLExpressionDialog.zh-CN.resx">
+      <DependentUpon>SQLExpressionDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Symbology\ColorPicker.zh-CN.resx">
+      <DependentUpon>ColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Symbology\DetailedLineSymbolDialog.zh-CN.resx">
+      <DependentUpon>DetailedLineSymbolDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Symbology\DetailedPointSymbolDialog.resx">
+      <DependentUpon>DetailedPointSymbolDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Symbology\DetailedPointSymbolDialog.zh-CN.resx">
+      <DependentUpon>DetailedPointSymbolDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Symbology\DetailedPolygonSymbolDialog.resx">
+      <DependentUpon>DetailedPolygonSymbolDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProjectionCustomDialog.resx">
+      <DependentUpon>ProjectionCustomDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProjectionSelectDialog.resx">
+      <DependentUpon>ProjectionSelectDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\QueryDialog.resx">
+      <DependentUpon>QueryDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Attributes\ReNameField.resx">
+      <DependentUpon>ReNameField.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Attributes\Replace.resx">
+      <DependentUpon>Replace.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Symbology\DetailedPolygonSymbolDialog.zh-CN.resx">
+      <DependentUpon>DetailedPolygonSymbolDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Symbology\LineSymbolDialog.zh-CN.resx">
+      <DependentUpon>LineSymbolDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Symbology\StatisticalBreaksDialog.resx">
+      <DependentUpon>StatisticalBreaksDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Symbology\StatisticalBreaksDialog.zh-CN.resx">
+      <DependentUpon>StatisticalBreaksDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TabColorDialog.resx">
+      <DependentUpon>TabColorDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TabColorDialog.zh-CN.resx">
+      <DependentUpon>TabColorDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Components\LayoutListBox.resx">
+      <DependentUpon>LayoutListBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Components\LayoutPropertyGrid.resx">
+      <DependentUpon>LayoutPropertyGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Map\MapTools\MeasureDialog.resx">
+      <DependentUpon>MeasureDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Map\MapTools\MeasureDialog.zh-CN.resx">
+      <DependentUpon>MeasureDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageStrings.zh-CN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MessageStrings.zh-CN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Resources\ColorWheel.ico" />
+    <None Include="Resources\FileFolder.png" />
+    <None Include="Resources\FileGrid.png" />
+    <None Include="Resources\FileImage.png" />
+    <None Include="Resources\FileLine.png" />
+    <None Include="Resources\FilePoint.png" />
+    <None Include="Resources\FilePolygon.png" />
+    <None Include="Resources\layer_add.ico" />
+    <None Include="Resources\file_new.png" />
+    <None Include="Resources\FolderOpen.png" />
+    <None Include="Resources\file_saveas.png" />
+    <None Include="Resources\info.png" />
+    <None Include="Resources\Label.png" />
+    <None Include="Resources\ActivePlugin.ico" />
+    <None Include="Resources\InactivePlugin.ico" />
+    <None Include="Resources\AddLayer1.png" />
+    <None Include="Resources\Caution1.png" />
+    <None Include="Resources\Error1.png" />
+    <None Include="Resources\Hammer1.png" />
+    <None Include="Resources\HammerSmall1.png" />
+    <None Include="Resources\LinkData.png" />
+    <EmbeddedResource Include="Forms\LayoutForm.resx">
+      <DependentUpon>LayoutForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PageSetupForm.resx">
+      <DependentUpon>PageSetupForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Components\LayoutControl.resx">
+      <DependentUpon>LayoutControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Angle.ico">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\UserControl.ico" />
+    <EmbeddedResource Include="Tools\DialogComponents\BooleanElement.resx">
+      <DependentUpon>BooleanElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\DialogComponents\DateTimeElement.resx">
+      <DependentUpon>DateTimeElement.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\DialogComponents\DialogElement.resx">
+      <DependentUpon>DialogElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\DialogComponents\DialogSpacerElement.resx">
+      <DependentUpon>DialogSpacerElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\DialogComponents\DoubleElement.resx">
+      <DependentUpon>DoubleElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\DialogComponents\FeatureSetElement.resx">
+      <DependentUpon>FeatureSetElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\DialogComponents\FeatureSetElementOut.resx">
+      <DependentUpon>FeatureSetElementOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ToolStrips\mwToolStrip.ico" />
+    <EmbeddedResource Include="Tools\DialogComponents\IndexElement.resx" />
+    <EmbeddedResource Include="Tools\DialogComponents\IntElement.resx" />
+    <EmbeddedResource Include="Tools\DialogComponents\LineElement.resx" />
+    <EmbeddedResource Include="Tools\DialogComponents\LineElementOut.resx" />
+    <EmbeddedResource Include="Tools\DialogComponents\ListElement.resx" />
+    <EmbeddedResource Include="Tools\DialogComponents\OpenFileElement.resx">
+      <DependentUpon>OpenFileElement.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\DialogComponents\PointElement.resx">
+      <DependentUpon>PointElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\DialogComponents\PointElementOut.resx">
+      <DependentUpon>PointElementOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\DialogComponents\PolygonElement.resx">
+      <DependentUpon>PolygonElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\DialogComponents\PolygonElementOut.resx">
+      <DependentUpon>PolygonElementOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\DialogComponents\ProjectionElement.resx">
+      <DependentUpon>ProjectionElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\DialogComponents\RasterElement.resx">
+      <DependentUpon>RasterElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\DialogComponents\RasterElementOut.resx">
+      <DependentUpon>RasterElementOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\DialogComponents\SaveFileElement.resx">
+      <DependentUpon>SaveFileElement.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\DialogComponents\StringElement.resx">
+      <DependentUpon>StringElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\DialogComponents\ToolDialog.zh-CN.resx">
+      <DependentUpon>ToolDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\Modeler\frmModeler.zh-CN.resx">
+      <DependentUpon>frmModeler.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="Map\Components\Map.ico" />
+    <None Include="Resources\Copy.png" />
+    <None Include="Resources\Apple.png" />
+    <None Include="Resources\file_close.png" />
+    <None Include="Resources\color_scheme.png" />
+    <None Include="Resources\down.png" />
+    <None Include="Resources\down1.png" />
+    <None Include="Resources\calculator.png" />
+    <None Include="Resources\calculator1.png" />
+    <None Include="Resources\color_scheme1.png" />
+    <None Include="Resources\DropDown.ico" />
+    <None Include="Resources\categoryGray.png" />
+    <None Include="Resources\category2.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\Disk.png" />
+    <None Include="Resources\Area.png" />
+    <Content Include="Resources\Camera.ico" />
+    <Content Include="Resources\HammerSmall.ico" />
+    <None Include="Resources\layout_zoom_full_extent.ico" />
+    <None Include="Resources\layout_zoom_in.ico" />
+    <None Include="Resources\layout_zoom_out.ico" />
+    <None Include="Resources\Legend.png" />
+    <None Include="Resources\Line.png" />
+    <Content Include="Resources\Logo48.ico" />
+    <Content Include="Resources\AddLayer.png" />
+    <Content Include="Resources\Caution.png" />
+    <Content Include="Resources\Copy of Caution.png" />
+    <Content Include="Resources\Copy of Error.png" />
+    <Content Include="Resources\Copy of Hammer.png" />
+    <Content Include="Resources\Error.png" />
+    <Content Include="Resources\Hammer.png" />
+    <Content Include="Resources\HammerSmall.png" />
+    <None Include="Resources\map.png" />
+    <Content Include="Resources\MapWindowLogoPale.png" />
+    <None Include="Resources\MapWindowLogoPale1.png" />
+    <Content Include="Resources\MapWinLogo.png" />
+    <None Include="Resources\NewModel.png" />
+    <None Include="Resources\NewModel.ico" />
+    <None Include="Resources\RunModel.png" />
+    <None Include="Resources\select_all.png" />
+    <None Include="Resources\select_none.png" />
+    <None Include="Resources\PageSetup.ico" />
+    <None Include="Resources\save.ico" />
+    <None Include="Resources\printer_icon.ico" />
+    <None Include="Resources\text.png" />
+    <None Include="Resources\Rectangle.png" />
+    <None Include="Resources\NorthArrow.png" />
+    <None Include="Resources\PanMap.png" />
+    <None Include="Resources\ScaleBar.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\script.png" />
+    <None Include="Resources\table_edit.png" />
+    <None Include="Resources\table_edit1.png" />
+    <None Include="Resources\refresh1.png" />
+    <None Include="Resources\script1.png" />
+    <None Include="Resources\table_edit.ico" />
+    <None Include="Resources\reverse3.png" />
+    <None Include="Resources\redbluearrows.png" />
+    <Content Include="Resources\valid.png" />
+    <Content Include="Resources\valid1.png" />
+    <None Include="Resources\zoom1.png" />
+    <None Include="Resources\zoom.png" />
+    <None Include="Resources\ZoomFullView.png" />
+    <None Include="Resources\ZoomInMap.png" />
+    <None Include="Resources\ZoomFullMap.png" />
+    <None Include="Resources\ZoomOutMap.png" />
+    <None Include="Resources\zoom_out.ico" />
+    <None Include="Resources\valid2.png" />
+    <None Include="Resources\up.png" />
+    <None Include="Resources\mnuLayerClear.png" />
+    <None Include="Resources\mnuLayerAdd.png" />
+    <None Include="Resources\PluginSubmenu.ico" />
+    <None Include="Resources\NewShape.ico" />
+    <None Include="Resources\NewShapefile.ico" />
+    <None Include="Resources\table.png" />
+    <None Include="Resources\zoom_full_extent.ico" />
+    <None Include="Resources\zoom_in.ico" />
+    <None Include="Resources\select.ico" />
+    <None Include="Resources\printer.png" />
+    <None Include="MapWindow.snk" />
+    <None Include="Resources\Pan.ico" />
+    <None Include="Resources\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MwProj4\MwProj4.csproj">
+      <Project>{D286DF06-21FA-40BE-B384-6ACA509AC98C}</Project>
+      <Name>MwProj4</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Analysis\Geoprocessing\" />
+    <Folder Include="Analysis\Georeference\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>"C:\Program Files\Microsoft\ILMerge\IlMerge" /out:$(TargetDir)MapWindow.dll $(TargetDir)MwDesktop.dll $(TargetDir)MwProj4.dll</PostBuildEvent>
+  </PropertyGroup>
+</Project>
