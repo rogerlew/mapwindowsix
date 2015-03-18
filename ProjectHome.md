@@ -1,0 +1,1 @@
+Codeplex seems very slow for committing code to the repository.  Unfortunately, google code is at least as slow, if not even slower.  It took more than 31 minutes to commit the paltry 192 megs of project code.  Until I find a hosting environment that is actually faster than Codeplex, you can retrieve the software from the Codeplex repository: http://mapwindow.codeplex.com.
